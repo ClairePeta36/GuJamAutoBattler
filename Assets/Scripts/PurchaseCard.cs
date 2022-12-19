@@ -1,10 +1,12 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PurchaseCard : MonoBehaviour
 {
     // Physical Card
+    public Button bg;
     public Image icon;
     public Text name;
     public Text cost;
@@ -13,17 +15,16 @@ public class PurchaseCard : MonoBehaviour
     public Text attack;
     public Text quantity;
 
-    private CardShop shopRef;
-    private EntityDatabase.EntityData myData;
+    public CardShop shopRef;
+    public EntityDatabase.EntityData myData;
     
     // Dragging
-    private Camera cam;
     public Vector3 dragOffset = new Vector3(0, -0.4f, 0);
-    private bool isDragging = false;
+    public bool isDragging = false;
 
     private void Start()
     {
-        cam = Camera.main;
+        bg.gameObject.AddComponent<AvailableTrayItem>();
     }
     
     public void Setup(EntityDatabase.EntityData myData, CardShop shopRef)
@@ -31,19 +32,14 @@ public class PurchaseCard : MonoBehaviour
         icon.sprite = myData.icon;
         name.text = myData.name;
         cost.text = myData.cost.ToString();
-        tribe.text = myData.tribe;
+        /*tribe.text = myData.tribe;
         health.text = myData.health.ToString();
         attack.text = myData.attack.ToString();
-        quantity.text = myData.quantity.ToString();
+        quantity.text = myData.quantity.ToString();*/
 
         this.myData = myData;
         this.shopRef = shopRef;
-    }
-
-    public void OnClick()
-    {
-        shopRef.OnCardClick(this, myData);
-        isDragging = true;
+        AvailableTrayItem.Setup(this);
     }
 
     public void SetDragging(bool val)
@@ -55,9 +51,21 @@ public class PurchaseCard : MonoBehaviour
     {
         if (isDragging)
         {
-            Vector3 newPosition = cam.ScreenToWorldPoint(Input.mousePosition) + dragOffset;
-            newPosition.z = 0;
-            this.transform.position = newPosition;
+            this.transform.position = Input.mousePosition + dragOffset;
         }
+    }
+}
+class AvailableTrayItem : MonoBehaviour, ISelectHandler
+{
+    private static PurchaseCard _purchaseCard;
+
+    public static void Setup(PurchaseCard card)
+    {
+        _purchaseCard = card;
+    }
+    public void OnSelect (BaseEventData eventData) 
+    {
+        _purchaseCard.shopRef.OnCardClick(_purchaseCard, _purchaseCard.myData);
+        _purchaseCard.SetDragging(true);
     }
 }

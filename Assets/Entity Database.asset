@@ -12,4 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20d7b3218c9f4ae4aa2061bba0aa0a1c, type: 3}
   m_Name: Entity Database
   m_EditorClassIdentifier: 
-  allEntities: []
+  allEntities:
+  - prefab: {fileID: 533284888493754617, guid: 5da06a182ec5c1f4db8cccc30ad48b05, type: 3}
+    name: Dragon
+    icon: {fileID: 21300000, guid: ffaa03404db66419288273f142be0704, type: 3}
+    cost: 2
+    tribe: 
+    health: 0
+    attack: 0
+    quantity: 0
+  - prefab: {fileID: 4686497114770631730, guid: 17d55aadc3336c14899079b8c5e51bdb,
+      type: 3}
+    name: Chicken
+    icon: {fileID: 21300000, guid: 4c9e955e2940d442ba09c7fc47831fae, type: 3}
+    cost: 2
+    tribe: 
+    health: 0
+    attack: 0
+    quantity: 0
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Duck
+    icon: {fileID: 21300000, guid: 2f8a96087e14c4906a507f7448b6cfb6, type: 3}
+    cost: 2
+    tribe: 
+    health: 0
+    attack: 0
+    quantity: 0
