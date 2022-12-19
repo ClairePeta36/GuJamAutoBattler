@@ -1,5 +1,4 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 // This will be used as the base class for each team member/party member
@@ -7,13 +6,9 @@ public class BaseEntity : MonoBehaviour
 {
     public Animator animator;
 
-    
-
     protected readonly List<Keyword> ownedKeywords = new List<Keyword>();
     public IReadOnlyList<Keyword> OwnedKeywords => ownedKeywords;
-    
-    
-    
+
     public int baseDamage = 1;
     public int baseHealth = 3;
     [Range(1, 5)]

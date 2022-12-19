@@ -10,4 +10,14 @@ public class PlayerData : Manager<PlayerData>
         Money = 250;
     }
     
+    public bool CanAfford(int amount)
+    {
+        return amount <= Money;
+    }
+
+    public void SpendMoney(int amount)
+    {
+        Money -= amount;
+        OnUpdate?.Invoke();
+    }
 }

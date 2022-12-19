@@ -2,14 +2,38 @@
 
 public class Tile : MonoBehaviour
 {
-    public SpriteRenderer highlightSprite;
     public Color validColor;
     public Color wrongColor;
+    public Renderer renderer;
 
-    public void SetHighlight(bool active, bool valid)
+    private void SetHighlight(bool active, bool valid)
     {
-        highlightSprite.gameObject.SetActive(active);
+        if (active)
+        {
+            var colour = valid ? validColor : wrongColor;
+            renderer.material.SetColor("_Color", colour);
+        }
+        else
+        {
+            renderer.material.SetColor("_Color", Color.white);
+        }
+    }
 
-        highlightSprite.color = valid ? validColor : wrongColor;
+    private void OnMouseEnter()
+    {
+        if (!GameManager.Instance.IsPurchasing)
+        {
+            return;
+        }
+        SetHighlight(true, !GridManager.Instance.GetNodeFromTile(this).IsOccupied);
+    }
+
+    private void OnMouseExit()
+    {
+        if (!GameManager.Instance.IsPurchasing)
+        {
+            return;
+        }
+        SetHighlight(false, !GridManager.Instance.GetNodeFromTile(this).IsOccupied);
     }
 }

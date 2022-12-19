@@ -6,8 +6,7 @@ public class GridManager : Manager<GridManager>
 {  
     public GameObject terrainGrid;
 
-    protected Graph graph;
-    protected Dictionary<Team, int> startPositionPerTeam;
+    private Graph graph;
     
     List<Tile> allTiles = new List<Tile>();
     protected void Awake()
@@ -16,9 +15,6 @@ public class GridManager : Manager<GridManager>
         allTiles = terrainGrid.GetComponentsInChildren<Tile>().ToList();
         
         InitializeGraph();
-        startPositionPerTeam = new Dictionary<Team, int>();
-        startPositionPerTeam.Add(Team.Team1, 0);
-        startPositionPerTeam.Add(Team.Team2, graph.Nodes.Count -1);
     }
 
     private void InitializeGraph()
@@ -43,5 +39,18 @@ public class GridManager : Manager<GridManager>
             }
         }
     }
+    public Node GetNodeFromTile(Tile t)
+    {
+        var allNodes = graph.Nodes;
 
+        for (int i = 0; i < allNodes.Count; i++)
+        {
+            if (t.transform.GetSiblingIndex() == allNodes[i].index)
+            {
+                return allNodes[i];
+            }
+        }
+
+        return null;
+    }
 }
