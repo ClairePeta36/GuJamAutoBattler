@@ -58,6 +58,7 @@ public class GameManager : Manager<GameManager>
         {
             return;
         }
+        tryingToPurchaseCard.SetDragging(false);
         
         //get mouse position/tile
         Tile spawnPosition = GetTileUnder();
@@ -71,6 +72,7 @@ public class GameManager : Manager<GameManager>
         PlayerData.Instance.SpendMoney(cost);
             
         tryingToPurchaseCard.gameObject.SetActive(false);
+        Destroy(tryingToPurchaseCard);
         OnEntityBrought(tryingToPurchaseEntity, GridManager.Instance.GetNodeFromTile(spawnPosition));
     }
 

@@ -12,6 +12,10 @@ public class EntityDatabase : ScriptableObject
         public Sprite icon;
 
         public int cost;
+        public string tribe;
+        public int health;
+        public int attack;
+        public int quantity;
     }
 
     public List<EntityData> allEntities;
