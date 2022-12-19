@@ -8,6 +8,7 @@ public class GameManager : Manager<GameManager>
 
     public Action OnRoundStart;
     public Action OnRoundEnd;
+    public Action<BaseEntity> OnEntityDied;
 
     int unitsPerTeam = 4;
 }

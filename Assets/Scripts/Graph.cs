@@ -54,7 +54,7 @@ public class Node
         occupied = false;
     }
 
-    public void SetOccupird(bool value)
+    public void SetOccupied(bool value)
     {
         this.occupied = value;
     }
