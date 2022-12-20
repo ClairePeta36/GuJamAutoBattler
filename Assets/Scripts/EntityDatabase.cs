@@ -9,13 +9,15 @@ public class EntityDatabase : ScriptableObject
     {
         public BaseEntity prefab;
         public string name;
-        public Sprite icon;
+        public Sprite imageBackground;
 
         public int cost;
         public string tribe;
+        public Sprite iconTribe;
         public int health;
         public int attack;
         public int quantity;
+        public string ability;
     }
 
     public List<EntityData> allEntities;
