@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class PurchaseCard : MonoBehaviour
 {
-    private Draggable draggableReference;
+    private DraggableCard draggableReference;
     
     // Physical Card
     public Button cardlayout;
@@ -25,8 +25,8 @@ public class PurchaseCard : MonoBehaviour
 
     private void Start()
     {
-        cardlayout.gameObject.AddComponent<Draggable>();
-        draggableReference = cardlayout.gameObject.GetComponent<Draggable>();
+        cardlayout.gameObject.AddComponent<DraggableCard>();
+        draggableReference = cardlayout.gameObject.GetComponent<DraggableCard>();
     }
     
     public void Setup(EntityDatabase.EntityData myData, CardShop shopRef)

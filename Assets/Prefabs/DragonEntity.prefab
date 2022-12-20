@@ -1492,6 +1492,8 @@ GameObject:
   - component: {fileID: 3558127762839533387}
   - component: {fileID: 3558127762832601387}
   - component: {fileID: 533284888493754617}
+  - component: {fileID: 5404993798534394086}
+  - component: {fileID: 6587248801872913977}
   m_Layer: 0
   m_Name: DragonEntity
   m_TagString: Untagged
@@ -1551,9 +1553,67 @@ MonoBehaviour:
   animator: {fileID: 3558127762832601387}
   baseDamage: 1
   baseHealth: 3
-  range: 1
   attackSpeed: 1
-  movementSpeed: 1
+  currentTarget: {fileID: 0}
+  currentTargetPosition: {x: 0, y: 0, z: 0}
+  draggableEntity: {fileID: 5404993798534394086}
+--- !u!114 &5404993798534394086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3558127762839879087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e4a48b613882cc4b8e457d4ee1522d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDragging: 0
+  baseEntity: {fileID: 533284888493754617}
+--- !u!114 &6587248801872913977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3558127762839879087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 13
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5404993798534394086}
+          m_MethodName: OnStartDrag
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 5
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5404993798534394086}
+          m_MethodName: OnDragging
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &3558127762839886709
 GameObject:
   m_ObjectHideFlags: 0

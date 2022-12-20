@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Draggable : MonoBehaviour, ISelectHandler
+public class DraggableCard : MonoBehaviour, ISelectHandler
 {
     private PurchaseCard purchaseCard;
     public void Setup(PurchaseCard card)
@@ -10,6 +10,11 @@ public class Draggable : MonoBehaviour, ISelectHandler
     }
     public void OnSelect (BaseEventData eventData) 
     {
+        if (GameManager.Instance.GetIsGameRunning())
+        {
+            return;
+        }
+        
         purchaseCard.shopRef.OnCardClick(purchaseCard, purchaseCard.myData);
         purchaseCard.SetDragging(true);
         purchaseCard = null;

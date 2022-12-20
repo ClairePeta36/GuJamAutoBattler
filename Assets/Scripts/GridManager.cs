@@ -32,7 +32,7 @@ public class GridManager : Manager<GridManager>
         {
             foreach (Node to in allNodes)
             {
-                if (Vector3.Distance(from.worldPosition, to.worldPosition) < 11f && from != to)
+                if (Vector3.Distance(from.worldPosition, to.worldPosition) < 15f && from != to)
                 {
                     graph.AddEdge(from, to);
                 }
@@ -98,4 +98,88 @@ public class GridManager : Manager<GridManager>
         }
         return enemySpawnPositions[currentIndex];
     }
+    
+    public Node GetNodeForTile(Tile t)
+    {
+        var allNodes = graph.Nodes;
+
+        for (int i = 0; i < allNodes.Count; i++)
+        {
+            if (t.transform.GetSiblingIndex() == allNodes[i].index)
+            {
+                return allNodes[i];
+            }
+        }
+
+        return null;
+    }
+    
+    
+    
+    
+    
+    public int fromIndex = 0;
+    public int toIndex = 0;
+
+    private void OnDrawGizmos()
+    {
+        if (graph == null)
+            return;
+
+        var allEdges = graph.Edges;
+        if (allEdges == null)
+            return;
+
+        foreach(Edge e in allEdges)
+        {
+            Debug.DrawLine(e.from.worldPosition, e.to.worldPosition, Color.magenta, 100);
+        }
+
+        var allNodes = graph.Nodes;
+        if (allNodes == null)
+            return;
+
+        foreach (Node n in allNodes)
+        {
+            Gizmos.color = n.IsOccupied ? Color.red : Color.green;
+            Gizmos.DrawSphere(n.worldPosition, 1f);
+            
+        }
+
+        if (fromIndex >= allNodes.Count || toIndex >= allNodes.Count)
+            return;
+
+        List<Node> path = graph.GetShortestPath(allNodes[fromIndex], allNodes[toIndex]);
+        if (path.Count > 1)
+        {
+            for (int i = 1; i < path.Count; i++)
+            {
+                Debug.DrawLine(path[i - 1].worldPosition, path[i].worldPosition, Color.red, 10);
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

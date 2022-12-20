@@ -6,36 +6,50 @@ using UnityEngine.UI;
 public class GameManager : Manager<GameManager>
 {
     public EntityDatabase EntityDatabase;
-    
+
     public Transform team1Parent;
     public Transform team2Parent;
 
     private bool isGameRunning = false;
     public Button startGameButton;
-    
+
     public Action OnRoundStart;
     public Action OnRoundEnd;
     public Action<BaseEntity> OnEntityDied;
 
     public CardShop cardShop;
-    
+
     List<BaseEntity> team1Entities = new List<BaseEntity>();
     List<BaseEntity> team2Entities = new List<BaseEntity>();
 
     private bool isPurchasing = false;
+    private bool isDraggingEntity = false;
     public bool IsPurchasing => isPurchasing;
+    public bool IsDraggingEntity => isDraggingEntity;
     private PurchaseCard tryingToPurchaseCard;
     private EntityDatabase.EntityData tryingToPurchaseEntity;
+    private BaseEntity draggingEntity;
 
     public PurchaseCard GetTryingToPurchaseCard()
     {
         return tryingToPurchaseCard;
     }
+
     public EntityDatabase.EntityData GetTryingToPurchaseEntity()
     {
         return tryingToPurchaseEntity;
     }
-    
+
+    public BaseEntity getDraggingEntity()
+    {
+        return draggingEntity;
+    }
+
+    public void SetIsDraggingEntity(bool val)
+    {
+        isDraggingEntity = val;
+    }
+
     private void Start()
     {
         Instance = this;
@@ -73,6 +87,11 @@ public class GameManager : Manager<GameManager>
     {
         tryingToPurchaseCard = card;
         tryingToPurchaseEntity = cardData;
+    }
+
+    public void SetDraggingEntity(BaseEntity entity)
+    {
+        draggingEntity = entity;
     }
 
     public List<BaseEntity> GetEntitiesAgainst(Team against)

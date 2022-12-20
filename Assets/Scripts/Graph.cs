@@ -29,7 +29,7 @@ public class Graph
 
     public void AddNode(Vector3 worldPosition)
     {
-        nodes.Add(new Node(nodes.Count, worldPosition));
+        nodes.Add(new Node(nodes.Count, worldPosition + new Vector3(-5, 0, -5)));
     }
 
     public void AddEdge(Node from, Node to)
@@ -109,7 +109,6 @@ public class Graph
                 }
             }
         }
-        Debug.Log($"CLaire return path {path.Count}");
         return path;
     }
 

@@ -14,7 +14,7 @@ public class BaseEntity : MonoBehaviour
     public int baseDamage = 1;
     public int baseHealth = 3;
     [Range(1, 5)]
-    public int range = 1;
+    int range = 11;
     public float attackSpeed = 1f; //Attacks per second
     float movementSpeed = 10f; //Movement per second
 
@@ -22,6 +22,7 @@ public class BaseEntity : MonoBehaviour
     protected Tribe myTribe;
     protected bool tribeBonus = false;
     public BaseEntity currentTarget = null;
+    public Vector3 currentTargetPosition;
     protected Node currentNode;
 
     public Node CurrentNode => currentNode;
@@ -33,6 +34,8 @@ public class BaseEntity : MonoBehaviour
 
     protected bool dead = false;
     protected bool canAttack = true;
+
+    public DraggableEntity draggableEntity;
 
 
     private void OnRoundStart()
@@ -52,7 +55,6 @@ public class BaseEntity : MonoBehaviour
         {
             transform.Rotate(0, 90, 0);
         }
-        transform.position += new Vector3(-5, 0, -5);
         currentNode.SetOccupied(true);
     }
 
@@ -77,32 +79,31 @@ public class BaseEntity : MonoBehaviour
         // first we check if we have an active enemy target if not we find one
         if (!HasEnemy)
         {
-            Debug.Log($"Claire fixed update first if");
             FindTarget();
         }
         
         // we then want to check is this enemy target we are aiming for in range to start attacking
         if (IsEnemyInRange && !moving)
         {
-            Debug.Log($"Claire fixed update second if");
-            if (canAttack)
+            if (!canAttack)
             {
-                //attack and deal damage
-                Attack();
-                currentTarget.DealDamage(baseDamage);
+                return;
             }
+            
+            //attack and deal damage
+            Attack();
+            //currentTarget.DealDamage(baseDamage);
         }
         else
         {
-            Debug.Log($"Claire fixed update first else");
             // no enemy in range we need to keep moving
             GetInRange();
         }
         
     }
 
-    
-    protected void FindTarget()
+
+    private void FindTarget()
     {
         var allEnemies = GameManager.Instance.GetEntitiesAgainst(myTeam);
         float minDistance = Mathf.Infinity;
@@ -117,9 +118,14 @@ public class BaseEntity : MonoBehaviour
         }
 
         currentTarget = entity;
+        if (currentTarget != null)
+        {
+            currentTargetPosition = currentTarget.transform.position;
+        }
+        
     }
 
-    protected bool MoveTowards(Node nextNode)
+    private bool MoveTowards(Node nextNode)
     {
         Vector3 direction = (nextNode.worldPosition - this.transform.position);
         if(direction.sqrMagnitude <= 0.005f)
@@ -134,7 +140,7 @@ public class BaseEntity : MonoBehaviour
         return false;
     }
 
-    protected void GetInRange()
+    private void GetInRange()
     {
         if (currentTarget == null)
             return;
@@ -143,6 +149,7 @@ public class BaseEntity : MonoBehaviour
         {
             destinationNode = null;
             List<Node> candidates = GridManager.Instance.GetNodesCloseTo(currentTarget.CurrentNode);
+            Debug.Log($"Claire currenttarget :{currentTarget.transform.position} node:{currentTarget.currentNode.worldPosition}");
             candidates = candidates.OrderBy(x => Vector3.Distance(x.worldPosition, this.transform.position)).ToList();
             for(int i = 0; i < candidates.Count;i++)
             {
@@ -201,10 +208,15 @@ public class BaseEntity : MonoBehaviour
 
     protected virtual void Attack()
     {
+        Debug.Log($"Claire {this.name} is attacking {currentTarget.name}");
         if (!canAttack)
             return;
 
-        animator.SetTrigger("attack");
+        animator.SetTrigger("idle");
+        var lookPosition = currentTarget.transform.position - this.transform.position;
+        lookPosition.y = 0;
+        var rotation = Quaternion.LookRotation(lookPosition);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime);
     }
  
 }
