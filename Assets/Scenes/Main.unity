@@ -2803,6 +2803,7 @@ MonoBehaviour:
   EntityDatabase: {fileID: 11400000, guid: 7c5d531eb9a8c4840a910e2bbde1281e, type: 2}
   team1Parent: {fileID: 1080607018}
   team2Parent: {fileID: 1829886779}
+  cardShop: {fileID: 1764692959}
 --- !u!4 &507505153
 Transform:
   m_ObjectHideFlags: 0
