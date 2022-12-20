@@ -15,27 +15,355 @@ MonoBehaviour:
   allEntities:
   - prefab: {fileID: 533284888493754617, guid: 5da06a182ec5c1f4db8cccc30ad48b05, type: 3}
     name: Dragon
-    icon: {fileID: 21300000, guid: ffaa03404db66419288273f142be0704, type: 3}
+    imageBackground: {fileID: 0}
     cost: 2
     tribe: 
+    iconTribe: {fileID: 0}
     health: 0
     attack: 0
     quantity: 0
+    ability: 
   - prefab: {fileID: 4686497114770631730, guid: 17d55aadc3336c14899079b8c5e51bdb,
       type: 3}
     name: Chicken
-    icon: {fileID: 21300000, guid: 4c9e955e2940d442ba09c7fc47831fae, type: 3}
+    imageBackground: {fileID: 0}
     cost: 2
     tribe: 
+    iconTribe: {fileID: 0}
     health: 0
     attack: 0
     quantity: 0
+    ability: 
   - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
       type: 3}
     name: Duck
-    icon: {fileID: 21300000, guid: 2f8a96087e14c4906a507f7448b6cfb6, type: 3}
+    imageBackground: {fileID: 0}
     cost: 2
     tribe: 
+    iconTribe: {fileID: 0}
     health: 0
     attack: 0
     quantity: 0
+    ability: 
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Amazon Conscript
+    imageBackground: {fileID: 0}
+    cost: 1
+    tribe: Amazon
+    iconTribe: {fileID: 0}
+    health: 2
+    attack: 2
+    quantity: 2
+    ability: Ranged
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Canopy Sniper
+    imageBackground: {fileID: 0}
+    cost: 1
+    tribe: Amazon
+    iconTribe: {fileID: 0}
+    health: 1
+    attack: 3
+    quantity: 2
+    ability: Ranged \n Has twin strike while not being attacked
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Field Martyr
+    imageBackground: {fileID: 0}
+    cost: 1
+    tribe: Amazon
+    iconTribe: {fileID: 0}
+    health: 1
+    attack: 0
+    quantity: 1
+    ability: 'Permanently gain +1/+1 each time a friendly Amazon dies. '
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Mistress Scythia
+    imageBackground: {fileID: 0}
+    cost: 1
+    tribe: Amazon
+    iconTribe: {fileID: 0}
+    health: 2
+    attack: 2
+    quantity: 1
+    ability: 'At the start of your turn, destroy two random non-Amazons in your hand
+      and add two random Amazons of the same tier to your hand.  '
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Beastfury Shaman
+    imageBackground: {fileID: 0}
+    cost: 1
+    tribe: Amazon
+    iconTribe: {fileID: 0}
+    health: 2
+    attack: 2
+    quantity: 3
+    ability: 'Roar: Summon a 2/2 Wild Spirit Bear. '
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Riverjumper Captain
+    imageBackground: {fileID: 0}
+    cost: 1
+    tribe: Amazon
+    iconTribe: {fileID: 0}
+    health: 4
+    attack: 1
+    quantity: 3
+    ability: 'At the start of combat, gain +2 attack for each friendly Amazon squad. '
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Agrodor Protector
+    imageBackground: {fileID: 0}
+    cost: 1
+    tribe: Amazon
+    iconTribe: {fileID: 0}
+    health: 5
+    attack: 3
+    quantity: 3
+    ability: 'Frontline. Regen (1). '
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Dead Body Guard
+    imageBackground: {fileID: 0}
+    cost: 1
+    tribe: Anubian
+    iconTribe: {fileID: 0}
+    health: 1
+    attack: 1
+    quantity: 3
+    ability: 'Roar: Also summon a 1/1 Skeleton unit, then grow your Skeletons by
+      1. '
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Nether's Advocate
+    imageBackground: {fileID: 0}
+    cost: 1
+    tribe: Anubian
+    iconTribe: {fileID: 0}
+    health: 1
+    attack: 1
+    quantity: 2
+    ability: 'Afterlife: Summon a 3/2 Experimental Outcome. '
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Osiris, the Eternal
+    imageBackground: {fileID: 0}
+    cost: 1
+    tribe: Anubian
+    iconTribe: {fileID: 0}
+    health: 4
+    attack: 3
+    quantity: 1
+    ability: 'Deathrattle: Grow all Anubians in the shop by 1 permanently. '
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Dune Cavalry
+    imageBackground: {fileID: 0}
+    cost: 1
+    tribe: Anubian
+    iconTribe: {fileID: 0}
+    health: 3
+    attack: 4
+    quantity: 4
+    ability: Blitz
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Skeleton Heavy
+    imageBackground: {fileID: 0}
+    cost: 1
+    tribe: Anubian
+    iconTribe: {fileID: 0}
+    health: 4
+    attack: 2
+    quantity: 2
+    ability: 'Afterlife: Deal (2) damage to all adjacent enemies. '
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Tomb Robber
+    imageBackground: {fileID: 0}
+    cost: 1
+    tribe: Anubian
+    iconTribe: {fileID: 0}
+    health: 2
+    attack: 1
+    quantity: 3
+    ability: 'Afterlife: Gain (1) extra gold next turn. '
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Priestess of Takhat
+    imageBackground: {fileID: 0}
+    cost: 1
+    tribe: Anubian
+    iconTribe: {fileID: 0}
+    health: 2
+    attack: 2
+    quantity: 1
+    ability: '"Ranged After another Anubian unit within range dies, gain +2 strength
+      for this battle. "'
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Pyrrhic Adolescent
+    imageBackground: {fileID: 0}
+    cost: 1
+    tribe: Dragon
+    iconTribe: {fileID: 0}
+    health: 4
+    attack: 4
+    quantity: 1
+    ability: Cleave
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Boil-Blood Outlaw
+    imageBackground: {fileID: 0}
+    cost: 1
+    tribe: Viking
+    iconTribe: {fileID: 0}
+    health: 2
+    attack: 2
+    quantity: 2
+    ability: 'Permanently gain +1 strength after killing an enemy. '
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Shieldmaiden
+    imageBackground: {fileID: 0}
+    cost: 1
+    tribe: Viking
+    iconTribe: {fileID: 0}
+    health: 3
+    attack: 2
+    quantity: 3
+    ability: Frontline
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Vanguard Axewoman
+    imageBackground: {fileID: 0}
+    cost: 2
+    tribe: Viking
+    iconTribe: {fileID: 0}
+    health: 2
+    attack: 2
+    quantity: 3
+    ability: Blitz
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Ulfgaar, Eater of Bears
+    imageBackground: {fileID: 0}
+    cost: 1
+    tribe: Viking
+    iconTribe: {fileID: 0}
+    health: 3
+    attack: 3
+    quantity: 1
+    ability: 'After you play a Viking, grow it by 1. '
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Fenris Berserker
+    imageBackground: {fileID: 0}
+    cost: 1
+    tribe: Viking
+    iconTribe: {fileID: 0}
+    health: 3
+    attack: 4
+    quantity: 3
+    ability: 'After this survives damage, it gains +(1) strength permanently. '
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Nokkvi Pillager
+    imageBackground: {fileID: 0}
+    cost: 1
+    tribe: Viking
+    iconTribe: {fileID: 0}
+    health: 3
+    attack: 3
+    quantity: 3
+    ability: 'Twin Strike. Gain (1) gold each time this unit kills a unit. '
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Bloodguard
+    imageBackground: {fileID: 0}
+    cost: 1
+    tribe: Viking
+    iconTribe: {fileID: 0}
+    health: 2
+    attack: 3
+    quantity: 3
+    ability: 'Afterlife: Add (2) 1/1 Bloodguards to your hand. '
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Marsh Walker
+    imageBackground: {fileID: 0}
+    cost: 2
+    tribe: 1
+    iconTribe: {fileID: 0}
+    health: 4
+    attack: 1
+    quantity: 3
+    ability: Regen (1)
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Black Jaguar
+    imageBackground: {fileID: 0}
+    cost: 1
+    tribe: Wild
+    iconTribe: {fileID: 0}
+    health: 3
+    attack: 3
+    quantity: 3
+    ability: Regen (1)
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Badger
+    imageBackground: {fileID: 0}
+    cost: 1
+    tribe: Wild
+    iconTribe: {fileID: 0}
+    health: 1
+    attack: 1
+    quantity: 2
+    ability: When you summon another Wild creature, grow by (1).
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Dagan, the Dawn Wolf
+    imageBackground: {fileID: 0}
+    cost: 1
+    tribe: Wild
+    iconTribe: {fileID: 0}
+    health: 6
+    attack: 2
+    quantity: 1
+    ability: Your creatures with regen grow by (1) at the end of the turn.
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Bladefly
+    imageBackground: {fileID: 0}
+    cost: 1
+    tribe: Wild
+    iconTribe: {fileID: 0}
+    health: 1
+    attack: 1
+    quantity: 1
+    ability: 'When you buy another Wild creature, add a Bladefly to your hand. '
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Underbrush Boar
+    imageBackground: {fileID: 0}
+    cost: 2
+    tribe: Wild
+    iconTribe: {fileID: 0}
+    health: 3
+    attack: 3
+    quantity: 5
+    ability: 
+  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+      type: 3}
+    name: Celestial Stag
+    imageBackground: {fileID: 0}
+    cost: 1
+    tribe: Wild
+    iconTribe: {fileID: 0}
+    health: 4
+    attack: 2
+    quantity: 3
+    ability: 'Your grow effects grow by (1) extra. '
