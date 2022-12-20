@@ -8,7 +8,7 @@ public class GridManager : Manager<GridManager>
 
     private Graph graph;
     
-    List<Tile> allTiles = new List<Tile>();
+    public List<Tile> allTiles = new List<Tile>();
     protected void Awake()
     {
         base.Awake();
@@ -32,7 +32,7 @@ public class GridManager : Manager<GridManager>
         {
             foreach (Node to in allNodes)
             {
-                if (Vector3.Distance(from.worldPosition, to.worldPosition) < 1f && from != to)
+                if (Vector3.Distance(from.worldPosition, to.worldPosition) < 11f && from != to)
                 {
                     graph.AddEdge(from, to);
                 }
@@ -54,6 +54,18 @@ public class GridManager : Manager<GridManager>
         return null;
     }
     
+    public List<Node> GetNodesCloseTo(Node to)
+    {
+        return graph.Neighbors(to);
+    }
+    
+    public List<Node> GetPath(Node from, Node to)
+    {
+        return graph.GetShortestPath(from, to);
+    }
+
+
+
     public Node GetFreeNode(Team forTeam)
     {
         List<Node> enemySpawnPositions = new List<Node>();

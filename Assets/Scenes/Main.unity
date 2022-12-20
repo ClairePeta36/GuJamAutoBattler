@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44751865, g: 0.49747443, b: 0.575314, a: 1}
+  m_IndirectSpecularColor: {r: 0.44751954, g: 0.4974755, b: 0.57531565, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1306,7 +1306,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 507505152}
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
@@ -3235,8 +3235,8 @@ MonoBehaviour:
   EntityDatabase: {fileID: 11400000, guid: 7c5d531eb9a8c4840a910e2bbde1281e, type: 2}
   team1Parent: {fileID: 1080607018}
   team2Parent: {fileID: 1829886779}
-  startGameButton: {fileID: 0}
-  cardShop: {fileID: 0}
+  startGameButton: {fileID: 165742154}
+  cardShop: {fileID: 2089021787}
 --- !u!4 &507505153
 Transform:
   m_ObjectHideFlags: 0
@@ -9772,6 +9772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainGrid: {fileID: 67489173}
+  allTiles: []
 --- !u!4 &1497651965
 Transform:
   m_ObjectHideFlags: 0
@@ -11249,6 +11250,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1700989855}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1700989857 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8479480832968867728, guid: 665eedfabdc438944a462d805b86670d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1700989855}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb4fc12cbdd14234f8bd5eb901864a52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1702772066
 GameObject:
   m_ObjectHideFlags: 0
@@ -11773,6 +11786,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1771411415}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1771411417 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8479480832968867728, guid: 665eedfabdc438944a462d805b86670d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1771411415}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb4fc12cbdd14234f8bd5eb901864a52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1777356985
 GameObject:
   m_ObjectHideFlags: 0
@@ -13543,6 +13568,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2010308611}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2010308613 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8479480832968867728, guid: 665eedfabdc438944a462d805b86670d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2010308611}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb4fc12cbdd14234f8bd5eb901864a52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2010437606
 GameObject:
   m_ObjectHideFlags: 0
@@ -13899,9 +13936,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allCards:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1771411417}
+  - {fileID: 2010308613}
+  - {fileID: 1700989857}
   money: {fileID: 494448478}
 --- !u!114 &2089021788
 MonoBehaviour:

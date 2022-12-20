@@ -6,7 +6,7 @@ public class PurchaseCard : MonoBehaviour
     private Draggable draggableReference;
     
     // Physical Card
-    public Button bg;
+    public Button cardlayout;
     public Image imageBackground;
     public Text name;
     public Text cost;
@@ -25,8 +25,8 @@ public class PurchaseCard : MonoBehaviour
 
     private void Start()
     {
-        bg.gameObject.AddComponent<Draggable>();
-        draggableReference = bg.gameObject.GetComponent<Draggable>();
+        cardlayout.gameObject.AddComponent<Draggable>();
+        draggableReference = cardlayout.gameObject.GetComponent<Draggable>();
     }
     
     public void Setup(EntityDatabase.EntityData myData, CardShop shopRef)

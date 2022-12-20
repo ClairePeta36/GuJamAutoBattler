@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class GameManager : Manager<GameManager>
 {
     public EntityDatabase EntityDatabase;
-    private Camera cam;
     
     public Transform team1Parent;
     public Transform team2Parent;
@@ -39,13 +38,17 @@ public class GameManager : Manager<GameManager>
     
     private void Start()
     {
-        cam = Camera.main;
         Instance = this;
     }
 
+    public bool GetIsGameRunning()
+    {
+        return isGameRunning;
+    }
     void SetGameStart()
     {
         isGameRunning = true;
+        OnRoundStart?.Invoke();
     }
 
     public void OnEntityBrought(EntityDatabase.EntityData entityData, Node spawnPosition)
@@ -72,6 +75,11 @@ public class GameManager : Manager<GameManager>
         tryingToPurchaseEntity = cardData;
     }
 
+    public List<BaseEntity> GetEntitiesAgainst(Team against)
+    {
+        return against == Team.Team1 ? team2Entities : team1Entities;
+    }
+    
     public void EntityDead(BaseEntity entity)
     {
         team1Entities.Remove(entity);
