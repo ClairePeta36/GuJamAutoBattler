@@ -1,10 +1,10 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.EventSystems;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class PurchaseCard : MonoBehaviour
 {
+    public Draggable draggableReference;
+    
     // Physical Card
     public Button bg;
     public Image icon;
@@ -18,13 +18,12 @@ public class PurchaseCard : MonoBehaviour
     public CardShop shopRef;
     public EntityDatabase.EntityData myData;
     
-    // Dragging
-    public Vector3 dragOffset = new Vector3(0, -0.4f, 0);
     public bool isDragging = false;
 
     private void Start()
     {
-        bg.gameObject.AddComponent<AvailableTrayItem>();
+        bg.gameObject.AddComponent<Draggable>();
+        draggableReference = bg.gameObject.GetComponent<Draggable>();
     }
     
     public void Setup(EntityDatabase.EntityData myData, CardShop shopRef)
@@ -39,7 +38,7 @@ public class PurchaseCard : MonoBehaviour
 
         this.myData = myData;
         this.shopRef = shopRef;
-        AvailableTrayItem.Setup(this);
+        draggableReference.Setup(this);
     }
 
     public void SetDragging(bool val)
@@ -51,21 +50,7 @@ public class PurchaseCard : MonoBehaviour
     {
         if (isDragging)
         {
-            this.transform.position = Input.mousePosition + dragOffset;
+            transform.position = Input.mousePosition;
         }
-    }
-}
-class AvailableTrayItem : MonoBehaviour, ISelectHandler
-{
-    private static PurchaseCard _purchaseCard;
-
-    public static void Setup(PurchaseCard card)
-    {
-        _purchaseCard = card;
-    }
-    public void OnSelect (BaseEventData eventData) 
-    {
-        _purchaseCard.shopRef.OnCardClick(_purchaseCard, _purchaseCard.myData);
-        _purchaseCard.SetDragging(true);
     }
 }

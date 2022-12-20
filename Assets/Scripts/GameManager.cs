@@ -12,6 +12,8 @@ public class GameManager : Manager<GameManager>
     public Action OnRoundStart;
     public Action OnRoundEnd;
     public Action<BaseEntity> OnEntityDied;
+
+    public CardShop cardShop;
     
     List<BaseEntity> team1Entities = new List<BaseEntity>();
     List<BaseEntity> team2Entities = new List<BaseEntity>();
@@ -20,7 +22,15 @@ public class GameManager : Manager<GameManager>
     public bool IsPurchasing => isPurchasing;
     private PurchaseCard tryingToPurchaseCard;
     private EntityDatabase.EntityData tryingToPurchaseEntity;
-    
+
+    public PurchaseCard GetTryingToPurchaseCard()
+    {
+        return tryingToPurchaseCard;
+    }
+    public EntityDatabase.EntityData GetTryingToPurchaseEntity()
+    {
+        return tryingToPurchaseEntity;
+    }
     
     private void Start()
     {
@@ -28,7 +38,7 @@ public class GameManager : Manager<GameManager>
         Instance = this;
     }
 
-    private void OnEntityBrought(EntityDatabase.EntityData entityData, Node spawnPosition)
+    public void OnEntityBrought(EntityDatabase.EntityData entityData, Node spawnPosition)
     {
         BaseEntity newEntity = Instantiate(entityData.prefab, team1Parent);
         newEntity.gameObject.name = entityData.name;
@@ -52,44 +62,6 @@ public class GameManager : Manager<GameManager>
         tryingToPurchaseEntity = cardData;
     }
 
-    private void OnMouseUp()
-    {
-        if (!isPurchasing || tryingToPurchaseCard == null)
-        {
-            return;
-        }
-        tryingToPurchaseCard.SetDragging(false);
-        
-        //get mouse position/tile
-        Tile spawnPosition = GetTileUnder();
-        
-        if (spawnPosition == null)
-        {
-            return;
-        }
-        
-        int cost = tryingToPurchaseEntity.cost;
-        PlayerData.Instance.SpendMoney(cost);
-            
-        tryingToPurchaseCard.gameObject.SetActive(false);
-        Destroy(tryingToPurchaseCard);
-        OnEntityBrought(tryingToPurchaseEntity, GridManager.Instance.GetNodeFromTile(spawnPosition));
-    }
-
-    private Tile GetTileUnder()
-    {
-        LayerMask releaseMask = new LayerMask();
-        RaycastHit2D hit = Physics2D.Raycast(cam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 100, releaseMask);
-
-        if (hit.collider == null)
-        {
-            return null;
-        }
-        
-        //Released over something!
-        Tile t = hit.collider.GetComponent<Tile>();
-        return t;
-    }
     public void EntityDead(BaseEntity entity)
     {
         team1Entities.Remove(entity);

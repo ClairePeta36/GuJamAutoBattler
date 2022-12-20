@@ -36,4 +36,21 @@ public class Tile : MonoBehaviour
         }
         SetHighlight(false, !GridManager.Instance.GetNodeFromTile(this).IsOccupied);
     }
+    
+    public void OnMouseUp()
+    {
+        if (!GameManager.Instance.IsPurchasing || GameManager.Instance.GetTryingToPurchaseCard() == null)
+        {
+            return;
+        }
+        GameManager.Instance.GetTryingToPurchaseCard().SetDragging(false);
+        PlayerData.Instance.SpendMoney(GameManager.Instance.GetTryingToPurchaseEntity().cost);
+            
+        // Destroy Card instance
+        GameManager.Instance.cardShop.allCards.Remove(GameManager.Instance.GetTryingToPurchaseCard());
+        Destroy(GameManager.Instance.GetTryingToPurchaseCard());
+        GameManager.Instance.GetTryingToPurchaseCard().gameObject.SetActive(false);
+        GameManager.Instance.OnEntityBrought(GameManager.Instance.GetTryingToPurchaseEntity(), GridManager.Instance.GetNodeFromTile(this));
+        SetHighlight(false, false);
+    }
 }
