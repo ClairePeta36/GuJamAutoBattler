@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class PurchaseCard : MonoBehaviour
 {
-    public Draggable draggableReference;
+    private Draggable draggableReference;
     
     // Physical Card
     public Button bg;
@@ -11,13 +11,14 @@ public class PurchaseCard : MonoBehaviour
     public Text name;
     public Text cost;
     public Text tribe;
-    public Text health;
-    public Text attack;
+    public Text attack_health;
     public Text quantity;
     public Image iconTribe;
     public Text ability;
 
+    [HideInInspector]
     public CardShop shopRef;
+    
     public EntityDatabase.EntityData myData;
     
     public bool isDragging = false;
@@ -34,8 +35,7 @@ public class PurchaseCard : MonoBehaviour
         name.text = myData.name;
         cost.text = myData.cost.ToString();
         tribe.text = myData.tribe;
-        health.text = myData.health.ToString();
-        attack.text = myData.attack.ToString();
+        attack_health.text = myData.attack + "/" + myData.health;
         quantity.text = myData.quantity.ToString();
         iconTribe.sprite = myData.iconTribe;
         ability.text = myData.ability;
