@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
+
 public class GameManager : Manager<GameManager>
 {
     public EntityDatabase EntityDatabase;
@@ -9,6 +11,9 @@ public class GameManager : Manager<GameManager>
     public Transform team1Parent;
     public Transform team2Parent;
 
+    private bool isGameRunning = false;
+    public Button startGameButton;
+    
     public Action OnRoundStart;
     public Action OnRoundEnd;
     public Action<BaseEntity> OnEntityDied;
@@ -36,6 +41,11 @@ public class GameManager : Manager<GameManager>
     {
         cam = Camera.main;
         Instance = this;
+    }
+
+    void SetGameStart()
+    {
+        isGameRunning = true;
     }
 
     public void OnEntityBrought(EntityDatabase.EntityData entityData, Node spawnPosition)
@@ -71,6 +81,37 @@ public class GameManager : Manager<GameManager>
 
         Destroy(entity.gameObject);
     }
+
+    public void StartGame()
+    {
+        if (isGameRunning)
+        {
+            return;
+        }
+        
+        //first we want to instantiate a number of opposition units/entitys
+        CreateTeamTwo();
+        
+        //we then want to trigger the start game countdown?
+
+        //begin the tick counting
+        SetGameStart();
+        startGameButton.gameObject.SetActive(false);
+    }
+    public void CreateTeamTwo()
+    {
+        for (int i = 0; i < team1Parent.childCount; i++)
+        {
+            int randomIndex = UnityEngine.Random.Range(0, EntityDatabase.allEntities.Count);
+            BaseEntity newEntity = Instantiate(EntityDatabase.allEntities[randomIndex].prefab, team2Parent);
+
+            team2Entities.Add(newEntity);
+
+            newEntity.Setup(Team.Team2, GridManager.Instance.GetFreeNode(Team.Team2));
+        }
+    }
+    
+
 }
 
 public enum Team

@@ -35,8 +35,15 @@ public class BaseEntity : MonoBehaviour
         myTeam = team;
         this.currentNode = currentNode;
         transform.position = currentNode.worldPosition;
+        if (team == Team.Team1)
+        {
+            transform.Rotate(0, -90, 0);
+        }
+        else
+        {
+            transform.Rotate(0, 90, 0);
+        }
         transform.position += new Vector3(-5, 0, -5);
-        transform.Rotate(0, -90, 0);
         currentNode.SetOccupied(true);
     }
 

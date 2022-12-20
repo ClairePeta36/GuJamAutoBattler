@@ -25,7 +25,9 @@ public class Tile : MonoBehaviour
         {
             return;
         }
-        SetHighlight(true, !GridManager.Instance.GetNodeFromTile(this).IsOccupied);
+
+        bool valid = !GridManager.Instance.GetNodeFromTile(this).IsOccupied && this.transform.position.x > 25;
+        SetHighlight(true, valid);
     }
 
     private void OnMouseExit()

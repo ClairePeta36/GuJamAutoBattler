@@ -53,4 +53,37 @@ public class GridManager : Manager<GridManager>
 
         return null;
     }
+    
+    public Node GetFreeNode(Team forTeam)
+    {
+        List<Node> enemySpawnPositions = new List<Node>();
+        foreach (var node in graph.Nodes)
+        {
+            if (node.worldPosition.x < -15)
+            {
+                enemySpawnPositions.Add(node);
+            }
+        }
+
+        int startIndex = 0;
+        int currentIndex = startIndex;
+
+        while(enemySpawnPositions[currentIndex].IsOccupied)
+        {
+            if(startIndex == 0)
+            {
+                currentIndex++;
+                if (currentIndex == enemySpawnPositions.Count)
+                    return null;
+            }
+            else
+            {
+                currentIndex--;
+                if (currentIndex == -1)
+                    return null;
+            }
+            
+        }
+        return enemySpawnPositions[currentIndex];
+    }
 }
