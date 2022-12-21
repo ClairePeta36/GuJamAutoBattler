@@ -30,6 +30,8 @@ public class GameManager : Manager<GameManager>
     private EntityDatabase.EntityData tryingToPurchaseEntity;
     private BaseEntity draggingEntity;
 
+    public GameObject cardSpawnLocation;
+    
     public PurchaseCard GetTryingToPurchaseCard()
     {
         return tryingToPurchaseCard;
@@ -77,6 +79,13 @@ public class GameManager : Manager<GameManager>
 
         SetPurchasing(false);
         SetPurchasingItem(null, new EntityDatabase.EntityData());
+    }
+    
+    public void OnEntityBroughtFromShop(PurchaseCard card, GameObject spawnPosition)
+    {
+        card.Setup(card.myData, card.shopRef);
+        card.transform.parent = spawnPosition.transform;
+        card.gameObject.SetActive(true);
     }
 
     public void SetPurchasing(bool val)

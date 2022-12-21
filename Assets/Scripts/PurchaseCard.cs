@@ -3,7 +3,8 @@ using UnityEngine.UI;
 
 public class PurchaseCard : MonoBehaviour
 {
-    private DraggableCard draggableReference;
+    public DraggableCard draggableReference;
+    public ClickableCard clickableReference;
     
     // Physical Card
     public Button cardlayout;
@@ -22,14 +23,18 @@ public class PurchaseCard : MonoBehaviour
     public EntityDatabase.EntityData myData;
     
     public bool isDragging = false;
-
-    private void Start()
-    {
-        cardlayout.gameObject.AddComponent<DraggableCard>();
-        draggableReference = cardlayout.gameObject.GetComponent<DraggableCard>();
-    }
     
     public void Setup(EntityDatabase.EntityData myData, CardShop shopRef)
+    {
+        clickableReference = null;
+        Destroy(cardlayout.gameObject.GetComponent<ClickableCard>());
+        
+        cardlayout.gameObject.AddComponent<DraggableCard>();
+        draggableReference = cardlayout.gameObject.GetComponent<DraggableCard>();
+        draggableReference.Setup(this);
+    }
+    
+    public void SetupShop(EntityDatabase.EntityData myData, CardShop shopRef)
     {
         imageBackground.sprite = myData.imageBackground;
         name.text = myData.name;
@@ -42,7 +47,10 @@ public class PurchaseCard : MonoBehaviour
 
         this.myData = myData;
         this.shopRef = shopRef;
-        draggableReference.Setup(this);
+        
+        cardlayout.gameObject.AddComponent<ClickableCard>();
+        clickableReference = cardlayout.gameObject.GetComponent<ClickableCard>();
+        clickableReference.Setup(this);
     }
 
     public void SetDragging(bool val)

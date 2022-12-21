@@ -57,7 +57,6 @@ public class Tile : MonoBehaviour
         if (GameManager.Instance.IsPurchasing && GameManager.Instance.GetTryingToPurchaseCard() != null)
         {
             GameManager.Instance.GetTryingToPurchaseCard().SetDragging(false);
-            PlayerData.Instance.SpendMoney(GameManager.Instance.GetTryingToPurchaseEntity().cost);
             
             // Destroy Card instance
             GameManager.Instance.cardShop.allCards.Remove(GameManager.Instance.GetTryingToPurchaseCard());
