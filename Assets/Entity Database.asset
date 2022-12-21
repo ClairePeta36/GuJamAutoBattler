@@ -213,7 +213,7 @@ MonoBehaviour:
     attack: 4
     quantity: 1
     ability: Cleave
-  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+  - prefab: {fileID: 2627360227456677459, guid: 996b1cdc214c6ad43b2b0a8dc6ab12ed,
       type: 3}
     name: Boil-Blood Outlaw
     imageBackground: {fileID: 21300000, guid: 5b822be8724384f049196a58d68676cb, type: 3}

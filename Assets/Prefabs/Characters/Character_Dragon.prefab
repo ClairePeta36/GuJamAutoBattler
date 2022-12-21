@@ -296,7 +296,7 @@ GameObject:
   - component: {fileID: 5296532548763785771}
   - component: {fileID: 8295725424969364483}
   m_Layer: 0
-  m_Name: Dragon
+  m_Name: Character_Dragon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

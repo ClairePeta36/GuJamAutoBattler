@@ -11,18 +11,18 @@ public class BaseEntity : MonoBehaviour
     protected readonly List<Keyword> ownedKeywords = new List<Keyword>();
     public IReadOnlyList<Keyword> OwnedKeywords => ownedKeywords;
 
+    [HideInInspector]
     public int baseDamage = 1;
+    [HideInInspector]
     public int baseHealth = 3;
-    [Range(1, 5)]
-    int range = 11;
-    public float attackSpeed = 1f; //Attacks per second
+    public int range = 1;
     float movementSpeed = 10f; //Movement per second
+    int quantity = 1; //Movement per second
 
     protected Team myTeam;
     protected Tribe myTribe;
     protected bool tribeBonus = false;
     public BaseEntity currentTarget = null;
-    public Vector3 currentTargetPosition;
     protected Node currentNode;
 
     public Node CurrentNode => currentNode;
@@ -39,7 +39,7 @@ public class BaseEntity : MonoBehaviour
     public DraggableEntity draggableEntity;
 
     
-    public void Setup(Team team, Node currentNode)
+    public void Setup(Team team, Node currentNode, EntityDatabase.EntityData entityData)
     {
         myTeam = team;
         this.currentNode = currentNode;
@@ -52,6 +52,33 @@ public class BaseEntity : MonoBehaviour
         {
             transform.Rotate(0, 90, 0);
         }
+
+        switch (entityData.tribe)
+        {
+            case "Amazon":
+                myTribe = Tribe.Amazon;
+                break;
+            case "Anubian":
+                myTribe = Tribe.Anubian;
+                break;
+            case "Dragon":
+                myTribe = Tribe.Dragon;
+                break;
+            case "Viking":
+                myTribe = Tribe.Viking;
+                break;
+            case "Wild":
+                myTribe = Tribe.Wild;
+                break;
+            default:
+                myTribe = Tribe.None;
+                break;
+        }
+
+        baseHealth = entityData.health;
+        baseDamage = entityData.attack;
+        quantity = entityData.quantity;
+        
         currentNode.SetOccupied(true);
     }
 
@@ -82,11 +109,6 @@ public class BaseEntity : MonoBehaviour
         }
 
         currentTarget = entity;
-        if (currentTarget != null)
-        {
-            currentTargetPosition = currentTarget.transform.position;
-        }
-        
     }
 
     private bool MoveTowards(Node nextNode)
@@ -171,18 +193,19 @@ public class BaseEntity : MonoBehaviour
         currentNode = node;
     }
 
-    public void DealDamage(int amount)
+    public bool DealDamage(int amount)
     {
         baseHealth -= amount;
 
         if (baseHealth > 0 || dead)
         {
-            return;
+            return false;
         }
         
         dead = true;
         currentNode.SetOccupied(false);
         GameManager.Instance.EntityDead(this);
+        return true;
     }
 
     protected virtual void Attack()

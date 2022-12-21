@@ -18,6 +18,8 @@ public class CardShop : MonoBehaviour
         Refresh();
     }
 
+    private List<int> validCharacters = new List<int> { 17, 18 };
+
     private void GenerateCard()
     {
         for(int i = 0; i < allCards.Count; i++)
@@ -26,7 +28,8 @@ public class CardShop : MonoBehaviour
                 allCards[i].gameObject.SetActive(true);
 
             //allCards[i].SetupShop(cachedDb.allEntities[Random.Range(0, cachedDb.allEntities.Count)], this);
-            allCards[i].SetupShop(cachedDb.allEntities[17], this);
+            allCards[i].SetupShop(cachedDb.allEntities[Random.Range(0, validCharacters.Count) + 17], this);
+            //allCards[i].SetupShop(cachedDb.allEntities[17], this);
         }
     }
 

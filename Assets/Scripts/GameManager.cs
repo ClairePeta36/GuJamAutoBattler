@@ -75,7 +75,7 @@ public class GameManager : Manager<GameManager>
 
         //below either use the vector3 position of the mouse and put that into game space, or get the tile from the tile script
         //or potentially could do a raycast hit on the mouse position
-        newEntity.Setup(Team.Team1, spawnPosition);
+        newEntity.Setup(Team.Team1, spawnPosition, entityData);
 
         SetPurchasing(false);
         SetPurchasingItem(null, new EntityDatabase.EntityData());
@@ -144,7 +144,7 @@ public class GameManager : Manager<GameManager>
 
             team2Entities.Add(newEntity);
 
-            newEntity.Setup(Team.Team2, GridManager.Instance.GetFreeNode(Team.Team2));
+            newEntity.Setup(Team.Team2, GridManager.Instance.GetFreeNode(Team.Team2), EntityDatabase.allEntities[randomIndex]);
         }
     }
     
