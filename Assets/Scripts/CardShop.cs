@@ -25,18 +25,25 @@ public class CardShop : MonoBehaviour
             if (!allCards[i].gameObject.activeSelf)
                 allCards[i].gameObject.SetActive(true);
 
-            allCards[i].Setup(cachedDb.allEntities[Random.Range(0, cachedDb.allEntities.Count)], this);
+            allCards[i].SetupShop(cachedDb.allEntities[Random.Range(0, cachedDb.allEntities.Count)], this);
         }
     }
 
     public void OnCardClick(PurchaseCard card, EntityDatabase.EntityData cardData)
     {
-        //check if we can afford this card
+        //This is now going to place the card into the hand
         if (!PlayerData.Instance.CanAfford(cardData.cost))
         {
             return;
         }
         
+        PlayerData.Instance.SpendMoney(cardData.cost);
+        card.gameObject.SetActive(false);
+        GameManager.Instance.OnEntityBroughtFromShop(card, GameManager.Instance.cardSpawnLocation);
+    }
+    
+    public void OnCardClickDrag(PurchaseCard card, EntityDatabase.EntityData cardData)
+    {
         GameManager.Instance.SetPurchasing(true);
         GameManager.Instance.SetPurchasingItem(card, cardData);
     }

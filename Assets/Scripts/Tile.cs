@@ -28,25 +28,24 @@ public class Tile : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        bool valid = false;
-        if (GameManager.Instance.IsPurchasing)
+        if (!GameManager.Instance.IsPurchasing && !GameManager.Instance.IsDraggingEntity)
         {
-            valid = !GridManager.Instance.GetNodeFromTile(this).IsOccupied && this.transform.position.x > 25;
-            SetHighlight(true, valid); 
-        }else if (GameManager.Instance.IsDraggingEntity)
+            return;
+        }
+        bool valid = !GridManager.Instance.GetNodeFromTile(this).IsOccupied && this.transform.position.x > 25;
+        SetHighlight(true, valid);
+        if (GameManager.Instance.IsDraggingEntity)
         {
-            valid = !GridManager.Instance.GetNodeFromTile(this).IsOccupied && this.transform.position.x > 25;
-            SetHighlight(true, valid);
+            GameManager.Instance.getDraggingEntity().draggableEntity.MoveCharacter(this);
         }
     }
 
     private void OnMouseExit()
     {
-        if (!GameManager.Instance.IsPurchasing && GameManager.Instance.IsDraggingEntity)
+        if (GameManager.Instance.IsPurchasing || GameManager.Instance.IsDraggingEntity)
         {
-            return;
+            SetHighlight(false, !GridManager.Instance.GetNodeFromTile(this).IsOccupied);
         }
-        SetHighlight(false, !GridManager.Instance.GetNodeFromTile(this).IsOccupied);
     }
     
     public void OnMouseUp()
@@ -58,7 +57,6 @@ public class Tile : MonoBehaviour
         if (GameManager.Instance.IsPurchasing && GameManager.Instance.GetTryingToPurchaseCard() != null)
         {
             GameManager.Instance.GetTryingToPurchaseCard().SetDragging(false);
-            PlayerData.Instance.SpendMoney(GameManager.Instance.GetTryingToPurchaseEntity().cost);
             
             // Destroy Card instance
             GameManager.Instance.cardShop.allCards.Remove(GameManager.Instance.GetTryingToPurchaseCard());

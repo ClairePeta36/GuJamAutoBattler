@@ -5,8 +5,9 @@ public class PlayerData : Manager<PlayerData>
 
     public System.Action OnUpdate;
 
-    private void Start()
+    private void Awake()
     {
+        base.Awake();
         Money = 7;
     }
     

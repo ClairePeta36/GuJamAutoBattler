@@ -3,14 +3,12 @@
 public class DraggableEntity : MonoBehaviour
 {
     private Vector3 oldPosition;
-    private int oldSortingOrder;
-    private Tile previousTile = null;
     
     public bool IsDragging = false;
     public BaseEntity baseEntity; 
     
     
-    public void OnStartDrag()
+    public void OnMouseDown()
     {
         if (GameManager.Instance.GetIsGameRunning())
         {
@@ -21,16 +19,16 @@ public class DraggableEntity : MonoBehaviour
         IsDragging = true;
         GameManager.Instance.SetIsDraggingEntity(true);
         GameManager.Instance.SetDraggingEntity(baseEntity);
+        baseEntity.CurrentNode.SetOccupied(false);
+        //GridManager.Instance.
     }
     
-    public void OnDragging()
+    public void MoveCharacter(Tile tile)
     {
         if (!IsDragging)
             return;
-        
-        Debug.Log(this.name + " dragging");
 
-        transform.position = Input.mousePosition;
+        this.transform.position = GridManager.Instance.GetNodeFromTile(tile).worldPosition;
     }
     
     public void OnEndDrag(Tile tile)
@@ -46,6 +44,7 @@ public class DraggableEntity : MonoBehaviour
         
         IsDragging = false;
         GameManager.Instance.SetIsDraggingEntity(false);
+        baseEntity.CurrentNode.SetOccupied(true);
     }
     
     private bool TryRelease(Tile tile)
