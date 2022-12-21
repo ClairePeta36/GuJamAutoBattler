@@ -85,10 +85,12 @@ public class GameManager : Manager<GameManager>
     
     public void OnEntityBroughtFromShop(PurchaseCard card, GameObject spawnPosition)
     {
-        card.Setup(card.myData, card.shopRef);
-        card.transform.parent = spawnPosition.transform;
-        card.transform.localScale = new Vector3(1, 1, 1);
-        card.gameObject.SetActive(true);
+        var newCard = Instantiate(card, spawnPosition.transform);
+        newCard.Setup(card.myData, card.shopRef);
+        newCard.transform.localScale = new Vector3(1, 1, 1);
+        newCard.gameObject.SetActive(true);
+
+        card.gameObject.SetActive(false);
     }
 
     public void SetPurchasing(bool val)

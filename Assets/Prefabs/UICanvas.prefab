@@ -326,7 +326,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2464005424995873482}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8328019856815932173}
+        m_MethodName: OnRefreshClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2464005425137552405
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,6 +835,7 @@ MonoBehaviour:
   - {fileID: 6708720761428953207}
   - {fileID: 1183999739705853052}
   money: {fileID: 2464005425137552400}
+  refreshCost: 1
 --- !u!1 &2464005425843339720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1925,11 +1937,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4d2c56744917e84e9509236ba23920d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openClose: {fileID: 2464005426323461758}
   arrowOne: {fileID: 2294456559733609549}
   arrowTwo: {fileID: 4639798333636754749}
   shopButtonText: {fileID: 2464005426339085299}
-  refreshButton: {fileID: 2464005424995873485}
+  startPosition: {x: 0, y: 0, z: 0}
+  cardShop: {fileID: 4778693865686885696}
+  refreshCost: {fileID: 2464005426280858616}
 --- !u!1 &2464005426483535300
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,18 +17,15 @@ public class PurchaseCard : MonoBehaviour
     public Image iconTribe;
     public Text ability;
 
-    [HideInInspector]
     public CardShop shopRef;
-    
     public EntityDatabase.EntityData myData;
-    
     public bool isDragging = false;
     
     public void Setup(EntityDatabase.EntityData myData, CardShop shopRef)
     {
-        clickableReference = null;
         Destroy(cardlayout.gameObject.GetComponent<ClickableCard>());
-        
+        clickableReference = null;
+
         cardlayout.gameObject.AddComponent<DraggableCard>();
         draggableReference = cardlayout.gameObject.GetComponent<DraggableCard>();
         draggableReference.Setup(this);

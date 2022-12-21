@@ -14,6 +14,11 @@ public class ClickableCard : MonoBehaviour, ISelectHandler
         {
             return;
         }
+
+        if (purchaseCard == null)
+        {
+            return;
+        }
         
         purchaseCard.shopRef.OnCardClick(purchaseCard, purchaseCard.myData);
         purchaseCard = null;

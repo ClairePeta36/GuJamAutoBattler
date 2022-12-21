@@ -6,13 +6,14 @@ public class ShopPanel : MonoBehaviour
     public Image arrowOne, arrowTwo;
     private bool isPanelOpen = false;
     public Text shopButtonText;
-
-    public Button refreshButton;
     public Vector3 startPosition;
+    public CardShop cardShop;
+    public Text refreshCost;
 
     private void Awake()
     {
         startPosition = this.transform.position;
+        refreshCost.text = cardShop.refreshCost.ToString();
     }
 
     public void OpenClosePanel()
@@ -37,5 +38,10 @@ public class ShopPanel : MonoBehaviour
             shopButtonText.text = "OPEN SHOP";
             this.gameObject.transform.position = startPosition;
         }
+    }
+
+    public void OnRefreshClick()
+    {
+        cardShop.OnRefreshClick();
     }
 }

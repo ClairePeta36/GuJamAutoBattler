@@ -8,7 +8,7 @@ public class CardShop : MonoBehaviour
     public Text money;
 
     private EntityDatabase cachedDb;
-    private int refreshCost = 1;
+    public int refreshCost = 1;
 
     private void Start()
     {
@@ -29,7 +29,6 @@ public class CardShop : MonoBehaviour
 
             //allCards[i].SetupShop(cachedDb.allEntities[Random.Range(0, cachedDb.allEntities.Count)], this);
             allCards[i].SetupShop(cachedDb.allEntities[validCharacters[Random.Range(0, validCharacters.Count)]], this);
-            //allCards[i].SetupShop(cachedDb.allEntities[17], this);
         }
     }
 
@@ -42,7 +41,7 @@ public class CardShop : MonoBehaviour
         }
         
         PlayerData.Instance.SpendMoney(cardData.cost);
-        card.gameObject.SetActive(false);
+        card.shopRef = this;
         GameManager.Instance.OnEntityBroughtFromShop(card, GameManager.Instance.cardSpawnLocation);
     }
     
