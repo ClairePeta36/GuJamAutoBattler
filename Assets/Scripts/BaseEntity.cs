@@ -149,7 +149,6 @@ public class BaseEntity : MonoBehaviour
         {
             destinationNode = null;
             List<Node> candidates = GridManager.Instance.GetNodesCloseTo(currentTarget.CurrentNode);
-            Debug.Log($"Claire currenttarget :{currentTarget.transform.position} node:{currentTarget.currentNode.worldPosition}");
             candidates = candidates.OrderBy(x => Vector3.Distance(x.worldPosition, this.transform.position)).ToList();
             for(int i = 0; i < candidates.Count;i++)
             {
@@ -180,11 +179,6 @@ public class BaseEntity : MonoBehaviour
             currentNode.SetOccupied(false);
             SetCurrentNode(destinationNode);
         }
-
-        if (myTeam == Team.Team1)
-        {
-            Debug.Log($"Claire end of function position is {transform.position}");
-        }
     }
 
     public void SetCurrentNode(Node node)
@@ -208,7 +202,6 @@ public class BaseEntity : MonoBehaviour
 
     protected virtual void Attack()
     {
-        Debug.Log($"Claire {this.name} is attacking {currentTarget.name}");
         if (!canAttack)
             return;
 

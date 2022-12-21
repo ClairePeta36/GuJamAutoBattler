@@ -654,6 +654,7 @@ GameObject:
   - component: {fileID: 6315491976565094506}
   - component: {fileID: 7487214231713368967}
   - component: {fileID: 7382657662553330366}
+  - component: {fileID: 8655300426090153828}
   m_Layer: 0
   m_Name: DuckEntity
   m_TagString: Untagged
@@ -744,21 +745,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 13
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7487214231713368967}
-          m_MethodName: OnStartDrag
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   - eventID: 5
     callback:
       m_PersistentCalls:
@@ -774,6 +760,19 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!65 &8655300426090153828
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944764920085375818}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20.02, y: 35, z: 40}
+  m_Center: {x: 0, y: 19.2, z: 6.1}
 --- !u!1 &1944764920085378094
 GameObject:
   m_ObjectHideFlags: 0
