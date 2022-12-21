@@ -16,6 +16,7 @@ public class GameManager : Manager<GameManager>
     public Action OnRoundStart;
     public Action OnRoundEnd;
     public Action<BaseEntity> OnEntityDied;
+    public Action<BaseEntity> OnEntityAdded;
 
     public CardShop cardShop;
 
@@ -76,6 +77,7 @@ public class GameManager : Manager<GameManager>
         //below either use the vector3 position of the mouse and put that into game space, or get the tile from the tile script
         //or potentially could do a raycast hit on the mouse position
         newEntity.Setup(Team.Team1, spawnPosition, entityData);
+        OnEntityAdded?.Invoke(newEntity);
 
         SetPurchasing(false);
         SetPurchasingItem(null, new EntityDatabase.EntityData());

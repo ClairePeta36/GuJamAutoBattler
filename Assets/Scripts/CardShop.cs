@@ -18,7 +18,7 @@ public class CardShop : MonoBehaviour
         Refresh();
     }
 
-    private List<int> validCharacters = new List<int> { 17, 18 };
+    private List<int> validCharacters = new List<int> { 17, 18, 21 };
 
     private void GenerateCard()
     {
@@ -28,7 +28,7 @@ public class CardShop : MonoBehaviour
                 allCards[i].gameObject.SetActive(true);
 
             //allCards[i].SetupShop(cachedDb.allEntities[Random.Range(0, cachedDb.allEntities.Count)], this);
-            allCards[i].SetupShop(cachedDb.allEntities[Random.Range(0, validCharacters.Count) + 17], this);
+            allCards[i].SetupShop(cachedDb.allEntities[validCharacters[Random.Range(0, validCharacters.Count)]], this);
             //allCards[i].SetupShop(cachedDb.allEntities[17], this);
         }
     }

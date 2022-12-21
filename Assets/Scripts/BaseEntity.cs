@@ -15,9 +15,9 @@ public class BaseEntity : MonoBehaviour
     public int baseDamage = 1;
     [HideInInspector]
     public int baseHealth = 3;
-    public int range = 1;
+    int range = 5;
     float movementSpeed = 10f; //Movement per second
-    int quantity = 1; //Movement per second
+    int quantity = 1;
 
     protected Team myTeam;
     protected Tribe myTribe;
@@ -82,18 +82,29 @@ public class BaseEntity : MonoBehaviour
         currentNode.SetOccupied(true);
     }
 
+    public Tribe getTribe()
+    {
+        return myTribe;
+    }
+
     protected void Start()
     {
         GameManager.Instance.OnRoundStart += OnRoundStart;
         GameManager.Instance.OnRoundEnd += OnRoundEnd;
         GameManager.Instance.OnEntityDied += OnUnitDied;
+        GameManager.Instance.OnEntityAdded += OnEntityAdded;
     }
 
     protected virtual void OnRoundStart() { }
     protected virtual void OnRoundEnd() { }
     protected virtual void OnUnitDied(BaseEntity diedUnity) { }
-    
+    protected virtual void OnEntityAdded(BaseEntity diedUnity) { }
 
+
+    public void IncreaseQuantity(int val)
+    {
+        quantity += val;
+    }
     protected void FindTarget()
     {
         var allEnemies = GameManager.Instance.GetEntitiesAgainst(myTeam);
@@ -116,9 +127,6 @@ public class BaseEntity : MonoBehaviour
         Vector3 direction = (currentTarget.transform.position - this.transform.position);
 
         if (direction.magnitude < 5f)
-            return false;
-
-        if(direction.sqrMagnitude <= 0.005f)
         {
             transform.position = currentTarget.transform.position;
             animator.SetBool("walking", false);
@@ -195,6 +203,7 @@ public class BaseEntity : MonoBehaviour
 
     public bool DealDamage(int amount)
     {
+        Debug.Log($"Claire damage dealt to {this.name}");
         baseHealth -= amount;
 
         if (baseHealth > 0 || dead)
@@ -210,6 +219,7 @@ public class BaseEntity : MonoBehaviour
 
     protected virtual void Attack()
     {
+        Debug.Log($"Claire attack function for {this.name}");
         if (!canAttack)
             return;
 

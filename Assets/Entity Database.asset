@@ -246,8 +246,7 @@ MonoBehaviour:
     attack: 2
     quantity: 3
     ability: Blitz
-  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
-      type: 3}
+  - prefab: {fileID: 248137253293590673, guid: 731a33912d8954e42882ed123da345bd, type: 3}
     name: Ulfgaar, Eater of Bears
     imageBackground: {fileID: 21300000, guid: 0fb0327cf313042f59b319abfdd455b3, type: 3}
     cost: 1

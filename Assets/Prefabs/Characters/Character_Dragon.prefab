@@ -310,7 +310,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5296532548763785770}
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.748, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 5299405757933443058}
@@ -379,9 +379,8 @@ MonoBehaviour:
   animator: {fileID: 5248114551879131132}
   baseDamage: 4
   baseHealth: 4
-  attackSpeed: 1
+  range: 1
   currentTarget: {fileID: 0}
-  currentTargetPosition: {x: 0, y: 0, z: 0}
   draggableEntity: {fileID: 5296532548763785771}
 --- !u!1 &5296580730214865194
 GameObject:
