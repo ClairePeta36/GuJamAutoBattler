@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 428800}
   - component: {fileID: 3366728}
   - component: {fileID: 2339990}
+  - component: {fileID: 64482927994557688}
   m_Layer: 0
   m_Name: SM_Env_Stream_Straight_02
   m_TagString: Untagged
@@ -80,3 +81,17 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 121696}
   m_IsPrefabParent: 1
+--- !u!64 &64482927994557688
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121696}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: a5103a27d40906b478f9a43ec5d264eb, type: 3}

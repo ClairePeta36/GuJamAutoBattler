@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 454318}
   - component: {fileID: 3334396}
   - component: {fileID: 2359206}
+  - component: {fileID: 65006349353474076}
   m_Layer: 0
   m_Name: SM_Env_Road_Straight_02_Snow
   m_TagString: Untagged
@@ -80,3 +81,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 150394}
   m_IsPrefabParent: 1
+--- !u!65 &65006349353474076
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150394}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.679872, y: 0.052398443, z: 1.0168324}
+  m_Center: {x: -1.4688613, y: 0, z: 0.5090859}

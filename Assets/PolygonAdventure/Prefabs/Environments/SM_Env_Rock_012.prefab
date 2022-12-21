@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 448170}
   - component: {fileID: 3327584}
   - component: {fileID: 2341052}
+  - component: {fileID: 64021998610466038}
   m_Layer: 0
   m_Name: SM_Env_Rock_012
   m_TagString: Untagged
@@ -80,3 +81,17 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 128182}
   m_IsPrefabParent: 1
+--- !u!64 &64021998610466038
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128182}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43253042867349202, guid: 67ffbcde30522ea4faac8b11e70b2ba0, type: 2}

@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 493444}
   - component: {fileID: 3367514}
   - component: {fileID: 2396218}
+  - component: {fileID: 64353312489382116}
   m_Layer: 0
   m_Name: SM_Env_Hill_03
   m_TagString: Untagged
@@ -80,3 +81,17 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 112838}
   m_IsPrefabParent: 1
+--- !u!64 &64353312489382116
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 112838}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: fddc0a670bc88bc4c89c753dd0e76868, type: 3}

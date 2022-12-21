@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 443022}
   - component: {fileID: 3338814}
   - component: {fileID: 2314512}
+  - component: {fileID: 64697851894995232}
   m_Layer: 0
   m_Name: SM_Env_TreeLog_01
   m_TagString: Untagged
@@ -80,3 +81,17 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 114594}
   m_IsPrefabParent: 1
+--- !u!64 &64697851894995232
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114594}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43041450305253618, guid: e362ef2f88aa5f047b4e6b0962097482, type: 2}

@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 420978}
   - component: {fileID: 3397130}
   - component: {fileID: 2349588}
+  - component: {fileID: 64119587045918436}
   m_Layer: 0
   m_Name: SM_Env_Hedge_01_Snow
   m_TagString: Untagged
@@ -80,3 +81,17 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 156494}
   m_IsPrefabParent: 1
+--- !u!64 &64119587045918436
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156494}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43980866649069772, guid: 64bfcc0f70781974680b0f3c74838dd4, type: 2}

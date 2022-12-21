@@ -10,6 +10,8 @@ GameObject:
   - component: {fileID: 453504}
   - component: {fileID: 3354652}
   - component: {fileID: 2336982}
+  - component: {fileID: 64598377501984458}
+  - component: {fileID: 64998272363667024}
   m_Layer: 0
   m_Name: SM_Wep_Dagger_01
   m_TagString: Untagged
@@ -80,3 +82,31 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 176486}
   m_IsPrefabParent: 1
+--- !u!64 &64598377501984458
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176486}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43440024684279720, guid: a8c99475586e5fd4e92c5f74b2058fbd, type: 2}
+--- !u!64 &64998272363667024
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176486}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43474421551865144, guid: a8c99475586e5fd4e92c5f74b2058fbd, type: 2}

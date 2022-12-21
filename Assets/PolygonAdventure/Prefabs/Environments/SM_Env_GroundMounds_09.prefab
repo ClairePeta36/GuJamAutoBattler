@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 481810}
   - component: {fileID: 3396440}
   - component: {fileID: 2364848}
+  - component: {fileID: 64085688923806076}
   m_Layer: 0
   m_Name: SM_Env_GroundMounds_09
   m_TagString: Untagged
@@ -80,3 +81,17 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 173754}
   m_IsPrefabParent: 1
+--- !u!64 &64085688923806076
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173754}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: dd4e46dbbfbb9334f9f860f55fd5ab8f, type: 3}

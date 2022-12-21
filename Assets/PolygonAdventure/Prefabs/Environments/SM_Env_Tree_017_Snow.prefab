@@ -10,6 +10,9 @@ GameObject:
   - component: {fileID: 429588}
   - component: {fileID: 3382160}
   - component: {fileID: 2374626}
+  - component: {fileID: 64342227320527342}
+  - component: {fileID: 64757185691728558}
+  - component: {fileID: 64260671202981526}
   m_Layer: 0
   m_Name: SM_Env_Tree_017_Snow
   m_TagString: Untagged
@@ -80,3 +83,45 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 101962}
   m_IsPrefabParent: 1
+--- !u!64 &64260671202981526
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101962}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43000857324859416, guid: 728b847bb2bb95a4b95e365a764429b5, type: 2}
+--- !u!64 &64342227320527342
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101962}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43915076193473288, guid: 728b847bb2bb95a4b95e365a764429b5, type: 2}
+--- !u!64 &64757185691728558
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101962}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43491633913076870, guid: 728b847bb2bb95a4b95e365a764429b5, type: 2}

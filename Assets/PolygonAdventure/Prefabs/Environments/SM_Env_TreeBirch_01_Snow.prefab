@@ -10,6 +10,8 @@ GameObject:
   - component: {fileID: 475206}
   - component: {fileID: 3313466}
   - component: {fileID: 2333256}
+  - component: {fileID: 64383353714809296}
+  - component: {fileID: 64803082730643736}
   m_Layer: 0
   m_Name: SM_Env_TreeBirch_01_Snow
   m_TagString: Untagged
@@ -80,3 +82,31 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 110048}
   m_IsPrefabParent: 1
+--- !u!64 &64383353714809296
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110048}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43108867336910816, guid: 17ac58aba2267ea4dbacd5c07ee0c2ee, type: 2}
+--- !u!64 &64803082730643736
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110048}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43865332839563262, guid: 17ac58aba2267ea4dbacd5c07ee0c2ee, type: 2}

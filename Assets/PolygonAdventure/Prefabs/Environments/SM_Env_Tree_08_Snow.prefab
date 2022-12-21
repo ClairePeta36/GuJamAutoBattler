@@ -10,6 +10,10 @@ GameObject:
   - component: {fileID: 486064}
   - component: {fileID: 3366052}
   - component: {fileID: 2322548}
+  - component: {fileID: 64791515500641946}
+  - component: {fileID: 64138738700203772}
+  - component: {fileID: 64653252202982816}
+  - component: {fileID: 64178668697309586}
   m_Layer: 0
   m_Name: SM_Env_Tree_08_Snow
   m_TagString: Untagged
@@ -80,3 +84,59 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 117356}
   m_IsPrefabParent: 1
+--- !u!64 &64138738700203772
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117356}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43689293856829794, guid: 5f933c844c0a95842b0c38364cc24e20, type: 2}
+--- !u!64 &64178668697309586
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117356}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43541930741584724, guid: 5f933c844c0a95842b0c38364cc24e20, type: 2}
+--- !u!64 &64653252202982816
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117356}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43670824320112626, guid: 5f933c844c0a95842b0c38364cc24e20, type: 2}
+--- !u!64 &64791515500641946
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117356}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43938964163840642, guid: 5f933c844c0a95842b0c38364cc24e20, type: 2}

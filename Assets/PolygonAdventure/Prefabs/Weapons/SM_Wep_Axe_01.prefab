@@ -10,6 +10,8 @@ GameObject:
   - component: {fileID: 498158}
   - component: {fileID: 3313288}
   - component: {fileID: 2301802}
+  - component: {fileID: 64345308664970418}
+  - component: {fileID: 64052333896039746}
   m_Layer: 0
   m_Name: SM_Wep_Axe_01
   m_TagString: Untagged
@@ -80,3 +82,31 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 193736}
   m_IsPrefabParent: 1
+--- !u!64 &64052333896039746
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193736}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43029088113792396, guid: d0dd38e172fdb2e43b2143bc395a9c66, type: 2}
+--- !u!64 &64345308664970418
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193736}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43621136008271502, guid: d0dd38e172fdb2e43b2143bc395a9c66, type: 2}

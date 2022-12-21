@@ -10,6 +10,8 @@ GameObject:
   - component: {fileID: 440276}
   - component: {fileID: 3395076}
   - component: {fileID: 2307200}
+  - component: {fileID: 64668421197460818}
+  - component: {fileID: 64372550325515992}
   m_Layer: 0
   m_Name: SM_Env_Tree_04
   m_TagString: Untagged
@@ -80,3 +82,31 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 177546}
   m_IsPrefabParent: 1
+--- !u!64 &64372550325515992
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177546}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43738739378627088, guid: cd10e5b687d5dd24f9959e0ee4d0bb5f, type: 2}
+--- !u!64 &64668421197460818
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177546}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43154094427397542, guid: cd10e5b687d5dd24f9959e0ee4d0bb5f, type: 2}

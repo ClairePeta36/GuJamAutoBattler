@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 484206}
   - component: {fileID: 3300882}
   - component: {fileID: 2367530}
+  - component: {fileID: 64195851998215866}
   m_Layer: 0
   m_Name: SM_Env_Stream_Corner_01
   m_TagString: Untagged
@@ -80,3 +81,17 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 122342}
   m_IsPrefabParent: 1
+--- !u!64 &64195851998215866
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122342}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 0574dc2baa540af478fa6c096554e1a7, type: 3}

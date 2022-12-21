@@ -10,6 +10,8 @@ GameObject:
   - component: {fileID: 435502}
   - component: {fileID: 3370896}
   - component: {fileID: 2351874}
+  - component: {fileID: 64756349822004520}
+  - component: {fileID: 64167927623110130}
   m_Layer: 0
   m_Name: SM_Wep_Pickaxe_01
   m_TagString: Untagged
@@ -80,3 +82,31 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 140132}
   m_IsPrefabParent: 1
+--- !u!64 &64167927623110130
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140132}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43762515323580808, guid: 3daffcfb3cccc584a8630ab2bbfe89ba, type: 2}
+--- !u!64 &64756349822004520
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140132}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43862152739261136, guid: 3daffcfb3cccc584a8630ab2bbfe89ba, type: 2}

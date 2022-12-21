@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 412700}
   - component: {fileID: 3341490}
   - component: {fileID: 2351526}
+  - component: {fileID: 64663163636499556}
   m_Layer: 0
   m_Name: SM_Env_Bush_01
   m_TagString: Untagged
@@ -80,3 +81,17 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 122670}
   m_IsPrefabParent: 1
+--- !u!64 &64663163636499556
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122670}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43415335652680792, guid: 6e2b6d0f9024a3c438a7a5c602cbaf80, type: 2}

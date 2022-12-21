@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 483852}
   - component: {fileID: 3334920}
   - component: {fileID: 2324614}
+  - component: {fileID: 64522662971033840}
   m_Layer: 0
   m_Name: SM_Env_Ice_01
   m_TagString: Untagged
@@ -80,3 +81,17 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 113340}
   m_IsPrefabParent: 1
+--- !u!64 &64522662971033840
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113340}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43208325328032238, guid: 741780421be3c4f4bb49584ba288e7e1, type: 2}

@@ -10,6 +10,8 @@ GameObject:
   - component: {fileID: 449674}
   - component: {fileID: 3350274}
   - component: {fileID: 2397988}
+  - component: {fileID: 64106360669477110}
+  - component: {fileID: 64636647949574388}
   m_Layer: 0
   m_Name: SM_Wep_MusketPistol_01
   m_TagString: Untagged
@@ -80,3 +82,31 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 168002}
   m_IsPrefabParent: 1
+--- !u!64 &64106360669477110
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168002}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43396669353799222, guid: b2587291db196e24485c16682f1c49ec, type: 2}
+--- !u!64 &64636647949574388
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168002}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43734873197532886, guid: b2587291db196e24485c16682f1c49ec, type: 2}

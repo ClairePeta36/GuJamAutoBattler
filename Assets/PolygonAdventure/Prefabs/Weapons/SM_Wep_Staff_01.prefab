@@ -10,6 +10,8 @@ GameObject:
   - component: {fileID: 457908}
   - component: {fileID: 3326580}
   - component: {fileID: 2306880}
+  - component: {fileID: 64614343253624374}
+  - component: {fileID: 64271775495947368}
   m_Layer: 0
   m_Name: SM_Wep_Staff_01
   m_TagString: Untagged
@@ -80,3 +82,31 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 141714}
   m_IsPrefabParent: 1
+--- !u!64 &64271775495947368
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141714}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43525871800539700, guid: 13f08ab2199f3ea4b9130110a34e6141, type: 2}
+--- !u!64 &64614343253624374
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141714}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43639962049826848, guid: 13f08ab2199f3ea4b9130110a34e6141, type: 2}

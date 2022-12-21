@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 433408}
   - component: {fileID: 3353642}
   - component: {fileID: 2388560}
+  - component: {fileID: 64409729799925074}
   m_Layer: 0
   m_Name: SM_Env_DirtMound_01
   m_TagString: Untagged
@@ -80,3 +81,17 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 176908}
   m_IsPrefabParent: 1
+--- !u!64 &64409729799925074
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176908}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 4ebf2f57fae79244db298b7ff25391b8, type: 3}

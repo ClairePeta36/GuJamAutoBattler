@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 472596}
   - component: {fileID: 3341224}
   - component: {fileID: 2362040}
+  - component: {fileID: 64367525442261054}
   m_Layer: 0
   m_Name: SM_Env_TreeStump_01
   m_TagString: Untagged
@@ -80,3 +81,17 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 142132}
   m_IsPrefabParent: 1
+--- !u!64 &64367525442261054
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142132}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43611502004595346, guid: ac5ddea4330b9ef40aedb80e36c8aa55, type: 2}
