@@ -293,8 +293,8 @@ GameObject:
   - component: {fileID: 5299253508868929470}
   - component: {fileID: 5248114551879131132}
   - component: {fileID: 5296532548763785781}
-  - component: {fileID: 5296532548763785780}
   - component: {fileID: 5296532548763785771}
+  - component: {fileID: 8295725424969364483}
   m_Layer: 0
   m_Name: Dragon
   m_TagString: Untagged
@@ -350,25 +350,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.59, y: 1.35, z: 3}
   m_Center: {x: 0, y: 0.37, z: 0.36}
---- !u!114 &5296532548763785780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5296532548763785770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab190afed0484fd49a53edbe426ba146, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 5248114551879131132}
-  baseDamage: 1
-  baseHealth: 3
-  attackSpeed: 1
-  currentTarget: {fileID: 0}
-  currentTargetPosition: {x: 0, y: 0, z: 0}
-  draggableEntity: {fileID: 5296532548763785771}
 --- !u!114 &5296532548763785771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,7 +363,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDragging: 0
-  baseEntity: {fileID: 5296532548763785780}
+  baseEntity: {fileID: 8295725424969364483}
+--- !u!114 &8295725424969364483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5296532548763785770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0d046734380dc247947e6794178218f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 5248114551879131132}
+  baseDamage: 4
+  baseHealth: 4
+  attackSpeed: 1
+  currentTarget: {fileID: 0}
+  currentTargetPosition: {x: 0, y: 0, z: 0}
+  draggableEntity: {fileID: 5296532548763785771}
 --- !u!1 &5296580730214865194
 GameObject:
   m_ObjectHideFlags: 0
