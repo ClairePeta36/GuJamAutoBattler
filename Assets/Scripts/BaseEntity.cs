@@ -127,10 +127,14 @@ public class BaseEntity : MonoBehaviour
 
     private bool MoveTowards(Node nextNode)
     {
-        Vector3 direction = (nextNode.worldPosition - this.transform.position);
+        Vector3 direction = (currentTarget.transform.position - this.transform.position);
+
+        if (direction.magnitude < 5f)
+            return false;
+
         if(direction.sqrMagnitude <= 0.005f)
         {
-            transform.position = nextNode.worldPosition;
+            transform.position = currentTarget.transform.position;
             animator.SetBool("walking", false);
             return true;
         }
