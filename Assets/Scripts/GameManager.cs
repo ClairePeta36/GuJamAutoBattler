@@ -85,6 +85,7 @@ public class GameManager : Manager<GameManager>
     {
         card.Setup(card.myData, card.shopRef);
         card.transform.parent = spawnPosition.transform;
+        card.transform.localScale = new Vector3(1, 1, 1);
         card.gameObject.SetActive(true);
     }
 

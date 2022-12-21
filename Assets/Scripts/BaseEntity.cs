@@ -29,6 +29,7 @@ public class BaseEntity : MonoBehaviour
     protected bool HasEnemy => currentTarget != null;
     protected bool IsEnemyInRange => currentTarget != null && Vector3.Distance(this.transform.position, currentTarget.transform.position) <= range;
     
+    
     protected bool moving;
     protected Node destinationNode;
 
@@ -37,11 +38,7 @@ public class BaseEntity : MonoBehaviour
 
     public DraggableEntity draggableEntity;
 
-
-    private void OnRoundStart()
-    {
-        FindTarget();
-    }
+    
     public void Setup(Team team, Node currentNode)
     {
         myTeam = team;
@@ -65,45 +62,12 @@ public class BaseEntity : MonoBehaviour
         GameManager.Instance.OnEntityDied += OnUnitDied;
     }
 
-    //protected virtual void OnRoundStart() { }
+    protected virtual void OnRoundStart() { }
     protected virtual void OnRoundEnd() { }
     protected virtual void OnUnitDied(BaseEntity diedUnity) { }
+    
 
-    void FixedUpdate()
-    {
-        //this is for testing will be overridden in the new classes we create
-        if (!GameManager.Instance.GetIsGameRunning())
-        {
-            return;
-        }
-        // first we check if we have an active enemy target if not we find one
-        if (!HasEnemy)
-        {
-            FindTarget();
-        }
-        
-        // we then want to check is this enemy target we are aiming for in range to start attacking
-        if (IsEnemyInRange && !moving)
-        {
-            if (!canAttack)
-            {
-                return;
-            }
-            
-            //attack and deal damage
-            Attack();
-            //currentTarget.DealDamage(baseDamage);
-        }
-        else
-        {
-            // no enemy in range we need to keep moving
-            GetInRange();
-        }
-        
-    }
-
-
-    private void FindTarget()
+    protected void FindTarget()
     {
         var allEnemies = GameManager.Instance.GetEntitiesAgainst(myTeam);
         float minDistance = Mathf.Infinity;
@@ -141,10 +105,27 @@ public class BaseEntity : MonoBehaviour
         animator.SetBool("walking", true);
 
         this.transform.position += direction.normalized * (movementSpeed * Time.deltaTime);
+        
+        var lookPosition = currentTarget.transform.position - this.transform.position;
+        lookPosition.y = 0;
+        var rotation = Quaternion.LookRotation(lookPosition);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime);
+        
         return false;
     }
 
-    private void GetInRange()
+    protected bool EntityInRange(Vector3 from, Vector3 to)
+    {
+        if (Vector3.Distance(this.transform.position, currentTarget.transform.position) <= range)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    
+    protected void GetInRange()
     {
         if (currentTarget == null)
             return;
@@ -189,8 +170,8 @@ public class BaseEntity : MonoBehaviour
     {
         currentNode = node;
     }
-    
-    private void DealDamage(int amount)
+
+    public void DealDamage(int amount)
     {
         baseHealth -= amount;
 
@@ -210,10 +191,6 @@ public class BaseEntity : MonoBehaviour
             return;
 
         animator.SetTrigger("idle");
-        var lookPosition = currentTarget.transform.position - this.transform.position;
-        lookPosition.y = 0;
-        var rotation = Quaternion.LookRotation(lookPosition);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime);
     }
  
 }

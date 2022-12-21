@@ -1173,7 +1173,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &260488742
 Transform:
   m_ObjectHideFlags: 0
@@ -5001,6 +5001,10 @@ PrefabInstance:
     - target: {fileID: 187410, guid: 4e1954baa6fd8a749a5d2d1aeb0fadce, type: 3}
       propertyPath: m_Name
       value: SF_Env_Rock_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 187410, guid: 4e1954baa6fd8a749a5d2d1aeb0fadce, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 401854, guid: 4e1954baa6fd8a749a5d2d1aeb0fadce, type: 3}
       propertyPath: m_RootOrder
@@ -9776,6 +9780,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2464005426323461729, guid: d26fb90148115cb4b9872b7fce6c6f1a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -844
+      objectReference: {fileID: 0}
+    - target: {fileID: 2464005426323461729, guid: d26fb90148115cb4b9872b7fce6c6f1a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -358
       objectReference: {fileID: 0}
     - target: {fileID: 2464005426345352749, guid: d26fb90148115cb4b9872b7fce6c6f1a,
         type: 3}

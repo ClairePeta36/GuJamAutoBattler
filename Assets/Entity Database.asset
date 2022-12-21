@@ -202,13 +202,13 @@ MonoBehaviour:
     quantity: 1
     ability: '"Ranged After another Anubian unit within range dies, gain +2 strength
       for this battle. "'
-  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+  - prefab: {fileID: 5296532548763785780, guid: 9be12f0c4fc99bf499e5af299f12b4b8,
       type: 3}
     name: Pyrrhic Adolescent
     imageBackground: {fileID: 21300000, guid: 8e1f2d3c30c2b4f778bede71b54f5bb2, type: 3}
     cost: 1
     tribe: Dragon
-    iconTribe: {fileID: 0}
+    iconTribe: {fileID: 21300000, guid: e197c033734f74098bc2d783d592b193, type: 3}
     health: 4
     attack: 4
     quantity: 1
@@ -296,7 +296,7 @@ MonoBehaviour:
     imageBackground: {fileID: 0}
     cost: 1
     tribe: Wild
-    iconTribe: {fileID: 0}
+    iconTribe: {fileID: 21300000, guid: ff51ceb765eb94ce9b77b18ff2fd89a3, type: 3}
     health: 4
     attack: 1
     quantity: 3
@@ -307,7 +307,7 @@ MonoBehaviour:
     imageBackground: {fileID: 0}
     cost: 1
     tribe: Wild
-    iconTribe: {fileID: 0}
+    iconTribe: {fileID: 21300000, guid: ff51ceb765eb94ce9b77b18ff2fd89a3, type: 3}
     health: 3
     attack: 3
     quantity: 3
@@ -318,7 +318,7 @@ MonoBehaviour:
     imageBackground: {fileID: 0}
     cost: 1
     tribe: Wild
-    iconTribe: {fileID: 0}
+    iconTribe: {fileID: 21300000, guid: ff51ceb765eb94ce9b77b18ff2fd89a3, type: 3}
     health: 1
     attack: 1
     quantity: 2
@@ -329,7 +329,7 @@ MonoBehaviour:
     imageBackground: {fileID: 0}
     cost: 1
     tribe: Wild
-    iconTribe: {fileID: 0}
+    iconTribe: {fileID: 21300000, guid: ff51ceb765eb94ce9b77b18ff2fd89a3, type: 3}
     health: 6
     attack: 2
     quantity: 1
@@ -340,7 +340,7 @@ MonoBehaviour:
     imageBackground: {fileID: 0}
     cost: 1
     tribe: Wild
-    iconTribe: {fileID: 0}
+    iconTribe: {fileID: 21300000, guid: ff51ceb765eb94ce9b77b18ff2fd89a3, type: 3}
     health: 1
     attack: 1
     quantity: 1
@@ -351,7 +351,7 @@ MonoBehaviour:
     imageBackground: {fileID: 0}
     cost: 2
     tribe: Wild
-    iconTribe: {fileID: 0}
+    iconTribe: {fileID: 21300000, guid: ff51ceb765eb94ce9b77b18ff2fd89a3, type: 3}
     health: 3
     attack: 3
     quantity: 5
@@ -362,7 +362,7 @@ MonoBehaviour:
     imageBackground: {fileID: 0}
     cost: 1
     tribe: Wild
-    iconTribe: {fileID: 0}
+    iconTribe: {fileID: 21300000, guid: ff51ceb765eb94ce9b77b18ff2fd89a3, type: 3}
     health: 4
     attack: 2
     quantity: 3

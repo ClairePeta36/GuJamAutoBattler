@@ -25,7 +25,8 @@ public class CardShop : MonoBehaviour
             if (!allCards[i].gameObject.activeSelf)
                 allCards[i].gameObject.SetActive(true);
 
-            allCards[i].SetupShop(cachedDb.allEntities[Random.Range(0, cachedDb.allEntities.Count)], this);
+            //allCards[i].SetupShop(cachedDb.allEntities[Random.Range(0, cachedDb.allEntities.Count)], this);
+            allCards[i].SetupShop(cachedDb.allEntities[17], this);
         }
     }
 
@@ -61,6 +62,6 @@ public class CardShop : MonoBehaviour
 
     void Refresh()
     {
-        money.text = PlayerData.Instance.Money.ToString();
+        money.text = "Cash " + PlayerData.Instance.Money.ToString();
     }
 }
