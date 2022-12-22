@@ -33,12 +33,20 @@ public class GameManager : Manager<GameManager>
     private BaseEntity draggingEntity;
 
     public GameObject cardSpawnLocation;
+
+    private int difficulty = 0;
+    public Dropdown AIdifficulty;
     
     public PurchaseCard GetTryingToPurchaseCard()
     {
         return tryingToPurchaseCard;
     }
 
+    public void SetDifficulty()
+    {
+        Debug.Log($"Claire value {AIdifficulty.value}");
+        difficulty = AIdifficulty.value;
+    }
     public EntityDatabase.EntityData GetTryingToPurchaseEntity()
     {
         return tryingToPurchaseEntity;

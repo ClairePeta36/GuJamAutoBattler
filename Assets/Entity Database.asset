@@ -336,7 +336,7 @@ MonoBehaviour:
   - prefab: {fileID: 7524813503346391604, guid: 3fb86e1123513f94cb00651b757b6aa1,
       type: 3}
     name: Bladefly
-    imageBackground: {fileID: 0}
+    imageBackground: {fileID: 21300000, guid: e228356beb99b4fe4a04ef1e9cca012b, type: 3}
     cost: 1
     tribe: Wild
     iconTribe: {fileID: 21300000, guid: ff51ceb765eb94ce9b77b18ff2fd89a3, type: 3}
