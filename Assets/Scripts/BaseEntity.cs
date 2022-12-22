@@ -38,6 +38,8 @@ public class BaseEntity : MonoBehaviour
 
     public DraggableEntity draggableEntity;
 
+    protected bool attackThisUpdate = false;
+
     
     public void Setup(Team team, Node currentNode, EntityDatabase.EntityData entityData)
     {
@@ -93,6 +95,7 @@ public class BaseEntity : MonoBehaviour
         GameManager.Instance.OnRoundEnd += OnRoundEnd;
         GameManager.Instance.OnEntityDied += OnUnitDied;
         GameManager.Instance.OnEntityAdded += OnEntityAdded;
+        
     }
 
     protected virtual void OnRoundStart() { }
@@ -126,13 +129,14 @@ public class BaseEntity : MonoBehaviour
     {
         Vector3 direction = (currentTarget.transform.position - this.transform.position);
 
+
         if (direction.magnitude < 5f)
         {
             transform.position = currentTarget.transform.position;
             animator.SetBool("walking", false);
             return true;
         }
-        animator.SetBool("walking", true);
+        //animator.SetBool("walking", true);
 
         this.transform.position += direction.normalized * (movementSpeed * Time.deltaTime);
         
@@ -223,7 +227,8 @@ public class BaseEntity : MonoBehaviour
         if (!canAttack)
             return;
 
-        animator.SetTrigger("idle");
+        animator.SetTrigger("Attack");
+        return;
     }
  
 }
