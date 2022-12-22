@@ -101,10 +101,10 @@ MonoBehaviour:
     attack: 2
     quantity: 3
     ability: 'Roar: Summon a 2/2 Wild Spirit Bear. '
-  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+  - prefab: {fileID: 5113340331834199551, guid: 03b0eb9fe2623b543850c2cc5a7b152b,
       type: 3}
     name: Riverjumper Captain
-    imageBackground: {fileID: 0}
+    imageBackground: {fileID: 21300000, guid: 02ed9b838dcb44b828a82cbdecb0b752, type: 3}
     cost: 1
     tribe: Amazon
     iconTribe: {fileID: 21300000, guid: 2d7e96e437d3b4c8a86609d68ffc28a2, type: 3}
