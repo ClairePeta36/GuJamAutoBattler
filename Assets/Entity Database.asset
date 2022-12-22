@@ -224,10 +224,10 @@ MonoBehaviour:
     attack: 2
     quantity: 2
     ability: 'Permanently gain +1 strength after killing an enemy. '
-  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+  - prefab: {fileID: 9001146039422742291, guid: 0570cfc3da7fd124396fdf8bb9239212,
       type: 3}
     name: Shieldmaiden
-    imageBackground: {fileID: 0}
+    imageBackground: {fileID: 21300000, guid: baa25a902b2d440e6bdfdf686740a778, type: 3}
     cost: 1
     tribe: Viking
     iconTribe: {fileID: 21300000, guid: 4049590461bfb4828b439a7b25b7b7d7, type: 3}

@@ -40,6 +40,9 @@ public class BaseEntity : MonoBehaviour
     public DraggableEntity draggableEntity;
 
     protected bool attackThisUpdate = false;
+
+    [HideInInspector] 
+    public List<Keyword> appliedKeywords;
     
     [HideInInspector] 
     public List<Vector3> spawnpositions = new List<Vector3>
@@ -51,6 +54,7 @@ public class BaseEntity : MonoBehaviour
         new Vector3(-2.5f, 0, -2.5f),
     };
 
+    [HideInInspector] 
     public EntityDatabase.EntityData _entityData;
     
     public void Setup(Team team, Node currentNode, EntityDatabase.EntityData entityData)
@@ -134,6 +138,14 @@ public class BaseEntity : MonoBehaviour
         foreach (BaseEntity e in allEnemies)
         {
             if (Vector3.Distance(e.transform.position, this.transform.position) <= minDistance)
+            {
+                if (entity != null && entity.appliedKeywords.Contains(Keyword.Frontline) && e.appliedKeywords.Contains(Keyword.Frontline))
+                {
+                    continue;
+                }
+                minDistance = Vector3.Distance(e.transform.position, this.transform.position);
+                entity = e;
+            }else if (e.appliedKeywords.Contains(Keyword.Frontline) && Vector3.Distance(e.transform.position, this.transform.position) < minDistance)
             {
                 minDistance = Vector3.Distance(e.transform.position, this.transform.position);
                 entity = e;
