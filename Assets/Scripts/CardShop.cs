@@ -18,7 +18,7 @@ public class CardShop : MonoBehaviour
         Refresh();
     }
 
-    private List<int> validCharacters = new List<int> { 3, 5, 8, 16, 17, 18, 19, 24, 25, 27, 29 };
+    private List<int> validCharacters = new List<int> { 3, 5, 8, 10, 16, 17, 18, 19, 24, 25, 27, 29 };
 
     private void GenerateCard()
     {
@@ -31,9 +31,10 @@ public class CardShop : MonoBehaviour
             allCards[i].SetupShop(cachedDb.allEntities[validCharacters[Random.Range(0, validCharacters.Count)]], this);
         }
     }
-    public void GenerateSingleCard(EntityDatabase.EntityData entityData, int healthoverride = 0, int attackoverride = 0, int quantityoverride = 0)
+    public void GenerateSingleCard(EntityDatabase.EntityData entityData, int healthoverride = 0, int attackoverride = 0, int quantityoverride = 0, Transform overRidePosition = null)
     {
-        var card = Instantiate(GameManager.Instance.PurchaseCardPrefab, GameManager.Instance.cardSpawnLocation.transform);
+        var overwrite = overRidePosition == null ? GameManager.Instance.cardSpawnLocation.transform : overRidePosition;
+        var card = Instantiate(GameManager.Instance.PurchaseCardPrefab, overwrite);
         if (healthoverride > 0)
         {
             entityData.health = healthoverride;

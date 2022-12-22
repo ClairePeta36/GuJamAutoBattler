@@ -123,7 +123,7 @@ MonoBehaviour:
     attack: 3
     quantity: 3
     ability: 'Frontline. Regen (1). '
-  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+  - prefab: {fileID: 2400911122636963792, guid: c54f7de2bbb178b41bbd4781cfa77b79,
       type: 3}
     name: Dead Body Guard
     imageBackground: {fileID: 21300000, guid: 60274a51c9269450fa3931f2646648bf, type: 3}
