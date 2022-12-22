@@ -67,17 +67,17 @@ MonoBehaviour:
     attack: 3
     quantity: 2
     ability: Ranged \n Has twin strike while not being attacked
-  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+  - prefab: {fileID: 8740938958966898991, guid: 3955cbd1daee75a4fa269e8af4e61bee,
       type: 3}
     name: Field Martyr
-    imageBackground: {fileID: 0}
+    imageBackground: {fileID: 21300000, guid: 203b12f465886452691ff9d3e00cb490, type: 3}
     cost: 1
     tribe: Amazon
     iconTribe: {fileID: 21300000, guid: 2d7e96e437d3b4c8a86609d68ffc28a2, type: 3}
     health: 1
     attack: 0
     quantity: 1
-    ability: 'Permanently gain +1/+1 each time a friendly Amazon dies. '
+    ability: 'Gain +1/+1 each time a friendly Amazon dies. '
   - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
       type: 3}
     name: Mistress Scythia
@@ -223,7 +223,7 @@ MonoBehaviour:
     health: 2
     attack: 2
     quantity: 2
-    ability: 'Permanently gain +1 strength after killing an enemy. '
+    ability: 'Gain +1 strength after killing an enemy. '
   - prefab: {fileID: 9001146039422742291, guid: 0570cfc3da7fd124396fdf8bb9239212,
       type: 3}
     name: Shieldmaiden

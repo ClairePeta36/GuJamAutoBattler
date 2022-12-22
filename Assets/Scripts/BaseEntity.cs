@@ -121,7 +121,10 @@ public class BaseEntity : MonoBehaviour
     protected virtual void OnEntityAdded(BaseEntity addedUnity) { }
     protected virtual void OnEntityPurchased(PurchaseCard broughtUnity) { }
 
-
+    public Team GetTeam()
+    {
+        return myTeam;
+    }
     public void IncreaseQuantity(int val)
     {
         quantity += val;

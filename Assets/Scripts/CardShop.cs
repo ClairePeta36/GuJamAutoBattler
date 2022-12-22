@@ -18,7 +18,7 @@ public class CardShop : MonoBehaviour
         Refresh();
     }
 
-    private List<int> validCharacters = new List<int> { 3, 17, 18, 21, 25, 27 };
+    private List<int> validCharacters = new List<int> { 3, 5, 8, 16, 17, 18, 19, 24, 25, 27, 29 };
 
     private void GenerateCard()
     {
