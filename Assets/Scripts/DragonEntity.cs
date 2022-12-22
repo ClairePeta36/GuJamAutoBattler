@@ -3,6 +3,7 @@
     {
         protected override void OnRoundStart()
         {
+            base.OnRoundStart();
             FindTarget();
         }
         

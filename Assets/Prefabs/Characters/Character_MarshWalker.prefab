@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5163131123338134209}
   - component: {fileID: 5163131123338134216}
   - component: {fileID: 5163131123338134223}
+  - component: {fileID: 8278706944615538469}
   m_Layer: 0
   m_Name: Character_MarshWalker
   m_TagString: Untagged
@@ -129,3 +130,40 @@ MonoBehaviour:
   range: 5
   currentTarget: {fileID: 0}
   draggableEntity: {fileID: 5163131123338134216}
+  appliedKeywords: 
+  spawnpositions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 2.5, y: 0, z: 2.5}
+  - {x: 2.5, y: 0, z: -2.5}
+  - {x: -2.5, y: 0, z: 2.5}
+  - {x: -2.5, y: 0, z: -2.5}
+  _entityData:
+    prefab: {fileID: 0}
+    name: 
+    imageBackground: {fileID: 0}
+    cost: 0
+    tribe: 
+    iconTribe: {fileID: 0}
+    health: 0
+    attack: 0
+    quantity: 0
+    ability: 
+--- !u!95 &8278706944615538469
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5163131123338134222}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

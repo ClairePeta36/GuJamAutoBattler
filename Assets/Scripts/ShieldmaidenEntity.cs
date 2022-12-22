@@ -4,6 +4,7 @@ public class ShieldmaidenEntity : BaseEntity
 {
     protected override void OnRoundStart()
     {
+        base.OnRoundStart();
         FindTarget();
         appliedKeywords.Add(Keyword.Frontline);
     }

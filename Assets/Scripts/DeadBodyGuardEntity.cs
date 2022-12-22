@@ -7,6 +7,7 @@ public class DeadBodyGuardEntity : BaseEntity
 {
     protected override void OnRoundStart()
     {
+        base.OnRoundStart();
         FindTarget();
     }
 

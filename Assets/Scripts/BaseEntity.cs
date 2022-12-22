@@ -115,7 +115,10 @@ public class BaseEntity : MonoBehaviour
 
     }
 
-    protected virtual void OnRoundStart() { }
+    protected virtual void OnRoundStart()
+    {
+        animator?.SetBool("Move", true);
+    }
     protected virtual void OnRoundEnd() { }
     protected virtual void OnUnitDied(BaseEntity diedUnity) { }
     protected virtual void OnEntityAdded(BaseEntity addedUnity) { }
@@ -166,10 +169,8 @@ public class BaseEntity : MonoBehaviour
         if (direction.magnitude < 5f)
         {
             transform.position = currentTarget.transform.position;
-            animator.SetBool("walking", false);
             return true;
         }
-        //animator.SetBool("walking", true);
 
         this.transform.position += direction.normalized * (movementSpeed * Time.deltaTime);
         
@@ -256,11 +257,11 @@ public class BaseEntity : MonoBehaviour
 
     protected virtual void Attack()
     {
-        Debug.Log($"Claire attack function for {this.name}");
+        animator?.SetBool("Move", false);
         if (!canAttack)
             return;
 
-        animator.SetTrigger("Attack");
+        animator?.SetBool("Attack", true);
         return;
     }
  

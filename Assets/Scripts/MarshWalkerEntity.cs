@@ -4,6 +4,7 @@ public class MarshWalkerEntity : BaseEntity
     private int tick = 0;
     protected override void OnRoundStart()
     {
+        base.OnRoundStart();
         FindTarget();
     }
         

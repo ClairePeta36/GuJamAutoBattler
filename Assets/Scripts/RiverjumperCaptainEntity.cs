@@ -5,6 +5,7 @@ public class RiverjumperCaptainEntity : BaseEntity
 {
     protected override void OnRoundStart()
     {
+        base.OnRoundStart();
         FindTarget();
         foreach (var entity in GameManager.Instance.GetEntitiesAgainst(Team.Team2))
         {

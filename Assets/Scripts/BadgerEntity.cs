@@ -4,6 +4,7 @@ public class BadgerEntity : BaseEntity
     //When you summon another Wild creature, grow by (1).
     protected override void OnRoundStart()
     {
+        base.OnRoundStart();
         FindTarget();
     }
     

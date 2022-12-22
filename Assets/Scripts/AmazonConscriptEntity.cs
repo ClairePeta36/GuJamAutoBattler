@@ -3,6 +3,7 @@ public class AmazonConscriptEntity : BaseEntity
 {
     protected override void OnRoundStart()
     {
+        base.OnRoundStart();
         FindTarget();
         this.range = 10;
     }

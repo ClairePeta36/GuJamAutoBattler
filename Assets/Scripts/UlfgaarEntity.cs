@@ -7,6 +7,7 @@ public class UlfgaarEntity : BaseEntity
 {
         protected override void OnRoundStart()
         {
+            base.OnRoundStart();
             FindTarget();
         }
         

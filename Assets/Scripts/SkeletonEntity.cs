@@ -3,6 +3,7 @@ public class SkeletonEntity : BaseEntity
 {
     protected override void OnRoundStart()
     {
+        base.OnRoundStart();
         FindTarget();
     }
     

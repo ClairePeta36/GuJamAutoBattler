@@ -908,8 +908,27 @@ MonoBehaviour:
   animator: {fileID: 3757904796230449585}
   baseDamage: 1
   baseHealth: 3
+  range: 5
   currentTarget: {fileID: 0}
   draggableEntity: {fileID: 1456278534581734421}
+  appliedKeywords: 
+  spawnpositions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 2.5, y: 0, z: 2.5}
+  - {x: 2.5, y: 0, z: -2.5}
+  - {x: -2.5, y: 0, z: 2.5}
+  - {x: -2.5, y: 0, z: -2.5}
+  _entityData:
+    prefab: {fileID: 0}
+    name: 
+    imageBackground: {fileID: 0}
+    cost: 0
+    tribe: 
+    iconTribe: {fileID: 0}
+    health: 0
+    attack: 0
+    quantity: 0
+    ability: 
 --- !u!1 &3757904796239898917
 GameObject:
   m_ObjectHideFlags: 0

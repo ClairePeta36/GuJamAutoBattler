@@ -4,6 +4,7 @@ public class BladeflyEntity : BaseEntity
 {
     protected override void OnRoundStart()
     {
+        base.OnRoundStart();
         FindTarget();
     }
     

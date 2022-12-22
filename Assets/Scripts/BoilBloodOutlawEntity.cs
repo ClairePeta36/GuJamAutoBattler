@@ -3,6 +3,7 @@ public class BoilBloodOutlawEntity : BaseEntity
 {
     protected override void OnRoundStart()
     {
+        base.OnRoundStart();
         FindTarget();
     }
         

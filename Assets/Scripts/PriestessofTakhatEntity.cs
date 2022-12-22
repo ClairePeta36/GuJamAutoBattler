@@ -7,6 +7,7 @@ public class PriestessofTakhatEntity : BaseEntity
 {
     protected override void OnRoundStart()
     {
+        base.OnRoundStart();
         FindTarget();
         this.range = 10;
     }

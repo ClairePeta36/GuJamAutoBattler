@@ -4,6 +4,7 @@ public class FieldMartyrEntity : BaseEntity
 {
     protected override void OnRoundStart()
     {
+        base.OnRoundStart();
         FindTarget();
     }
     

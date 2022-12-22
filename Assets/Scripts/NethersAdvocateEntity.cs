@@ -7,6 +7,7 @@ public class NethersAdvocateEntity : BaseEntity
 {
     protected override void OnRoundStart()
     {
+        base.OnRoundStart();
         FindTarget();
     }
     
@@ -43,6 +44,7 @@ public class NethersAdvocateEntity : BaseEntity
         }
         else
         {
+            animator?.SetBool("Attack", false);
             // no enemy in range we need to keep moving
             GetInRange();
         }
