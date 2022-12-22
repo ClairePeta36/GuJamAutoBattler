@@ -43,6 +43,8 @@ public class GameManager : Manager<GameManager>
 
     private int countOfTeam1PLayed = 0;
 
+    public GameObject endGameScreen;
+
     public int getcountOfTeam1PLayed()
     {
         return countOfTeam1PLayed;
@@ -244,6 +246,11 @@ public class GameManager : Manager<GameManager>
             }
         }
     }
+
+    public void RoundEnd()
+    {
+        endGameScreen.SetActive(true);
+    }
 }
 
 public enum Team
@@ -251,3 +258,4 @@ public enum Team
     Team1,
     Team2
 }
+
