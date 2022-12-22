@@ -70,13 +70,29 @@ public class GameManager : Manager<GameManager>
 
     public void OnEntityBrought(EntityDatabase.EntityData entityData, Node spawnPosition)
     {
-        BaseEntity newEntity = Instantiate(entityData.prefab, team1Parent);
-        newEntity.gameObject.name = entityData.name;
-        team1Entities.Add(newEntity);
+        BaseEntity newEntity = new BaseEntity();
+        for (int i = 0; i < entityData.quantity; i++)
+        {
+            newEntity = Instantiate(entityData.prefab, team1Parent);
+            newEntity.gameObject.name = entityData.name;
+            team1Entities.Add(newEntity);
         
-        newEntity.Setup(Team.Team1, spawnPosition, entityData);
+            newEntity.Setup(Team.Team1, spawnPosition, entityData);
+            newEntity.transform.position += newEntity.spawnpositions[i];
+        }
         OnEntityAdded?.Invoke(newEntity);
 
+        SetPurchasing(false);
+        SetPurchasingItem(null, new EntityDatabase.EntityData());
+    }
+    
+    public void OnEntityCreated(BaseEntity entityData, Vector3 spawnPosition)
+    {
+        BaseEntity newEntity = Instantiate(entityData, team1Parent);
+        newEntity.gameObject.name = entityData.name;
+        newEntity.transform.position = spawnPosition;
+        team1Entities.Add(newEntity);
+        
         SetPurchasing(false);
         SetPurchasingItem(null, new EntityDatabase.EntityData());
     }

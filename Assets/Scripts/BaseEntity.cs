@@ -31,7 +31,6 @@ public class BaseEntity : MonoBehaviour
     protected bool HasEnemy => currentTarget != null;
     protected bool IsEnemyInRange => currentTarget != null && Vector3.Distance(this.transform.position, currentTarget.transform.position) <= range;
     
-    
     protected bool moving;
     protected Node destinationNode;
 
@@ -41,7 +40,14 @@ public class BaseEntity : MonoBehaviour
     public DraggableEntity draggableEntity;
 
     protected bool attackThisUpdate = false;
-
+    public List<Vector3> spawnpositions = new List<Vector3>
+    {
+        new Vector3(0, 0, 0),
+        new Vector3(2.5f, 0, 2.5f),
+        new Vector3(2.5f, 0, -2.5f),
+        new Vector3(-2.5f, 0, 2.5f),
+        new Vector3(-2.5f, 0, -2.5f),
+    };
     
     public void Setup(Team team, Node currentNode, EntityDatabase.EntityData entityData)
     {
@@ -109,6 +115,10 @@ public class BaseEntity : MonoBehaviour
     public void IncreaseQuantity(int val)
     {
         quantity += val;
+    }
+    public int GetQuantity()
+    {
+        return quantity;
     }
     protected void FindTarget()
     {

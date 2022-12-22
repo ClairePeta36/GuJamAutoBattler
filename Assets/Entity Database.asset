@@ -311,7 +311,7 @@ MonoBehaviour:
     attack: 3
     quantity: 3
     ability: Regen (1)
-  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+  - prefab: {fileID: 4950246391650043078, guid: 02ad31b43da125d4b903b09f24d9c1ec,
       type: 3}
     name: Badger
     imageBackground: {fileID: 0}
