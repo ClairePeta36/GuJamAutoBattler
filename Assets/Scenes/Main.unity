@@ -9318,6 +9318,7 @@ MonoBehaviour:
   team2Parent: {fileID: 1829886779}
   startGameButton: {fileID: 165742154}
   cardShop: {fileID: 1166339505}
+  shopPanel: {fileID: 1942951435}
   cardSpawnLocation: {fileID: 2089021785}
   AIdifficulty: {fileID: 2464005424778388303}
 --- !u!4 &507505153
@@ -38335,6 +38336,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24457fdf8e66c3c49b7599931e0fdcb2, type: 3}
+--- !u!114 &1942951435 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8328019856815932173, guid: d26fb90148115cb4b9872b7fce6c6f1a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2464005424778388302}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4d2c56744917e84e9509236ba23920d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1952579363
 GameObject:
   m_ObjectHideFlags: 0
@@ -42648,7 +42661,7 @@ PrefabInstance:
     - target: {fileID: 6304375943031462554, guid: d26fb90148115cb4b9872b7fce6c6f1a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6490405653821179557, guid: d26fb90148115cb4b9872b7fce6c6f1a,
         type: 3}

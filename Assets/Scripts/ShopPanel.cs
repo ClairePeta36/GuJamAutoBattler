@@ -14,11 +14,19 @@ public class ShopPanel : MonoBehaviour
     {
         startPosition = this.transform.position;
         refreshCost.text = cardShop.refreshCost.ToString();
+        isPanelOpen = true;
+        MovePanel(isPanelOpen);
     }
 
     public void OpenClosePanel()
     {
         isPanelOpen = !isPanelOpen;
+        MovePanel(isPanelOpen);
+    }
+
+    public void ClosePanelOnGameStart()
+    {
+        isPanelOpen = false;
         MovePanel(isPanelOpen);
     }
 

@@ -13,6 +13,7 @@ public class UlfgaarEntity : BaseEntity
         
         protected override void OnEntityAdded(BaseEntity entity)
         {
+            base.OnEntityAdded(entity);
             if (entity.getTribe() == Tribe.Viking)
             {
                 entity.IncreaseQuantity(1);
