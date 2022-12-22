@@ -36,6 +36,9 @@ public class GameManager : Manager<GameManager>
 
     private int difficulty = 0;
     public Dropdown AIdifficulty;
+    private List<int> EasyDifficulty = new List<int> { 3, 5, 16, 18, 19, 25, 27}; // only tier one
+    private List<int> MeduimDifficulty = new List<int> { 3, 5, 8, 16, 17, 18, 19, 24, 25, 27, 29 }; // all
+    private List<int> HardDifficulty = new List<int> { 8, 17, 24, 27 }; // only tier two
     
     public PurchaseCard GetTryingToPurchaseCard()
     {
@@ -168,9 +171,28 @@ public class GameManager : Manager<GameManager>
     {
         for (int i = 0; i < team1Parent.childCount; i++)
         {
-            int randomIndex = UnityEngine.Random.Range(0, EntityDatabase.allEntities.Count);
-            BaseEntity newEntity = Instantiate(EntityDatabase.allEntities[randomIndex].prefab, team2Parent);
-
+            int randomIndex = 0;
+            BaseEntity newEntity = new BaseEntity();
+            
+            switch (difficulty)
+            {
+                case 0:
+                    //easy
+                    randomIndex = UnityEngine.Random.Range(0, EasyDifficulty.Count);
+                    newEntity = Instantiate(EntityDatabase.allEntities[EasyDifficulty[randomIndex]].prefab, team2Parent);
+                    break;
+                case 1:
+                    //medium
+                    randomIndex = UnityEngine.Random.Range(0, MeduimDifficulty.Count);
+                    newEntity = Instantiate(EntityDatabase.allEntities[MeduimDifficulty[randomIndex]].prefab, team2Parent);
+                    break;
+                case 2:
+                    //hard
+                    randomIndex = UnityEngine.Random.Range(0, HardDifficulty.Count);
+                    newEntity = Instantiate(EntityDatabase.allEntities[HardDifficulty[randomIndex]].prefab, team2Parent);
+                    break;
+            }
+            
             team2Entities.Add(newEntity);
 
             // might eventually adjust this to depend on the difficulty
