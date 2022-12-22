@@ -278,10 +278,10 @@ MonoBehaviour:
     attack: 3
     quantity: 3
     ability: 'Twin Strike. Gain (1) gold each time this unit kills a unit. '
-  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+  - prefab: {fileID: 3908921953826034080, guid: 94dabfbbaf791534797f96f4b04eea5b,
       type: 3}
     name: Bloodguard
-    imageBackground: {fileID: 0}
+    imageBackground: {fileID: 21300000, guid: a6d96b35984a641d08cbb330c7e5dff5, type: 3}
     cost: 1
     tribe: Viking
     iconTribe: {fileID: 21300000, guid: 4049590461bfb4828b439a7b25b7b7d7, type: 3}

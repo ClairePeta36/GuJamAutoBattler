@@ -1,22 +1,22 @@
 ﻿
-//When you buy another Wild creature, add a Bladefly to your hand. 
-public class BladeflyEntity : BaseEntity
+// Afterlife: Add (2) 1/1 Bloodguards to your hand. 
+public class BloodguardEntity : BaseEntity
 {
     protected override void OnRoundStart()
     {
         FindTarget();
     }
     
-    protected override void OnEntityPurchased(PurchaseCard entity)
+    protected override void OnUnitDied(BaseEntity entity)
     {
-        if (entity.tribe.text == "Wild")
+        if (entity == this)
         {
-            GameManager.Instance.cardShop.GenerateSingleCard(this._entityData);
+            //we died lol
+            GameManager.Instance.cardShop.GenerateSingleCard(this._entityData, 1, 1, 1);
+            GameManager.Instance.cardShop.GenerateSingleCard(this._entityData, 1, 1, 1);
         }
-        Destroy(entity);
     }
-    
-    
+
     void FixedUpdate()
     {
         //this is for testing will be overridden in the new classes we create
