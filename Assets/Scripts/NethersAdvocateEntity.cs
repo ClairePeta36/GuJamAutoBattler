@@ -11,11 +11,14 @@ public class NethersAdvocateEntity : BaseEntity
         FindTarget();
     }
     
-    protected override void OnEntityAdded(BaseEntity entity)
+    protected override void OnUnitDied(BaseEntity entity)
     {
-        Transform abc = new RectTransform();
-        abc.position = GridManager.Instance.GetFreeNode(Team.Team1).worldPosition;
-        GameManager.Instance.cardShop.GenerateSingleCard(GameManager.Instance.EntityDatabase.allEntities[0], overRidePosition: abc);
+        if (entity == this)
+        {
+            int position = GridManager.Instance.GetFreeNode(Team.Team1).index;
+            Transform abc = GridManager.Instance.allTiles[position].transform;
+            GameManager.Instance.cardShop.GenerateSingleCard(GameManager.Instance.EntityDatabase.allEntities[0], overRidePosition: abc);
+        }
     }
     
     void FixedUpdate()

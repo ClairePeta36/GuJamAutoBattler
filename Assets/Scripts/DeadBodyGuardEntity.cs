@@ -11,15 +11,15 @@ public class DeadBodyGuardEntity : BaseEntity
         FindTarget();
     }
 
-    protected override void OnEntityAdded(BaseEntity entity)
+    public void Awake()
     {
-        Transform abc = new RectTransform();
-        abc.position = GridManager.Instance.GetFreeNode(Team.Team1).worldPosition;
+        int position = GridManager.Instance.GetFreeNode(Team.Team1).index;
+        Transform abc = GridManager.Instance.allTiles[position].transform;
         EntityDatabase.EntityData skeleton = GameManager.Instance.EntityDatabase.allEntities[0];
         skeleton.quantity = 2;
         GameManager.Instance.cardShop.GenerateSingleCard(skeleton, overRidePosition: abc);
     }
-    
+
     void FixedUpdate()
     {
         //this is for testing will be overridden in the new classes we create

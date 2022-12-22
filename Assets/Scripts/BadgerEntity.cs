@@ -10,13 +10,13 @@ public class BadgerEntity : BaseEntity
     
     protected override void OnEntityAdded(BaseEntity entity)
     {
+        base.OnEntityAdded(entity);
         if (entity.getTribe() == Tribe.Wild)
         {
             this.IncreaseQuantity(1);
             GameManager.Instance.OnEntityCreated(this, this.spawnpositions[this.GetQuantity() - 1]);
         }
     }
-    
     
     void FixedUpdate()
     {

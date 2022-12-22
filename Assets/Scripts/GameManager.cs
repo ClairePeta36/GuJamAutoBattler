@@ -20,6 +20,7 @@ public class GameManager : Manager<GameManager>
     public Action<PurchaseCard> OnEntityPurchased;
 
     public CardShop cardShop;
+    public ShopPanel shopPanel;
 
     List<BaseEntity> team1Entities = new List<BaseEntity>();
     List<BaseEntity> team2Entities = new List<BaseEntity>();
@@ -39,6 +40,18 @@ public class GameManager : Manager<GameManager>
     private List<int> EasyDifficulty = new List<int> { 3, 5, 10, 11, 16, 18, 19, 25, 27}; // only tier one
     private List<int> MeduimDifficulty = new List<int> { 3, 5, 8, 10, 11, 16, 17, 18, 19, 24, 25, 27, 29 }; // all
     private List<int> HardDifficulty = new List<int> { 8, 17, 24, 27 }; // only tier two
+
+    private int countOfTeam1PLayed = 0;
+
+    public int getcountOfTeam1PLayed()
+    {
+        return countOfTeam1PLayed;
+    }
+
+    public void setcountOfTeam1PLayed(int val)
+    {
+        countOfTeam1PLayed += val;
+    }
     
     public PurchaseCard GetTryingToPurchaseCard()
     {
@@ -93,6 +106,11 @@ public class GameManager : Manager<GameManager>
             newEntity.transform.position += newEntity.spawnpositions[i];
         }
         OnEntityAdded?.Invoke(newEntity);
+        if (newEntity.GetTeam() == Team.Team1)
+        {
+            Debug.Log($"Claire OnEntityAdded for {newEntity.name}");
+            setcountOfTeam1PLayed(1);
+        }
 
         SetPurchasing(false);
         SetPurchasingItem(null, new EntityDatabase.EntityData());
@@ -165,40 +183,65 @@ public class GameManager : Manager<GameManager>
         //begin the tick counting
         SetGameStart();
         startGameButton.gameObject.SetActive(false);
+        shopPanel.ClosePanelOnGameStart();
     }
 
     private void CreateTeamTwo()
     {
-        for (int i = 0; i < team1Parent.childCount; i++)
+        Debug.Log($"Claire countOfTeam1PLayed count {countOfTeam1PLayed}");
+        for (int i = 0; i < countOfTeam1PLayed; i++)
         {
             int randomIndex = 0;
             BaseEntity newEntity = new BaseEntity();
-            
+            Node nodelocation = null;
             switch (difficulty)
             {
                 case 0:
                     //easy
                     randomIndex = UnityEngine.Random.Range(0, EasyDifficulty.Count);
-                    newEntity = Instantiate(EntityDatabase.allEntities[EasyDifficulty[randomIndex]].prefab, team2Parent);
+                    nodelocation = GridManager.Instance.GetFreeNode(Team.Team2);
+                    for (int j = 0; j < EntityDatabase.allEntities[EasyDifficulty[randomIndex]].quantity; j++)
+                    {
+                        newEntity = Instantiate(EntityDatabase.allEntities[EasyDifficulty[randomIndex]].prefab, team2Parent);
+                        newEntity.gameObject.name = EntityDatabase.allEntities[EasyDifficulty[randomIndex]].name;
+                        team2Entities.Add(newEntity);
+        
+                        newEntity.Setup(Team.Team2, nodelocation, EntityDatabase.allEntities[randomIndex]);
+                        newEntity.transform.position += newEntity.spawnpositions[i];
+                    }
+                    OnEntityAdded?.Invoke(newEntity);
                     break;
                 case 1:
                     //medium
-                    randomIndex = UnityEngine.Random.Range(0, MeduimDifficulty.Count);
-                    newEntity = Instantiate(EntityDatabase.allEntities[MeduimDifficulty[randomIndex]].prefab, team2Parent);
+                    randomIndex = UnityEngine.Random.Range(0, EasyDifficulty.Count);
+                    nodelocation = GridManager.Instance.GetFreeNode(Team.Team2);
+                    for (int j = 0; j < EntityDatabase.allEntities[EasyDifficulty[randomIndex]].quantity; j++)
+                    {
+                        newEntity = Instantiate(EntityDatabase.allEntities[EasyDifficulty[randomIndex]].prefab, team2Parent);
+                        newEntity.gameObject.name = EntityDatabase.allEntities[EasyDifficulty[randomIndex]].name;
+                        team2Entities.Add(newEntity);
+        
+                        newEntity.Setup(Team.Team2, nodelocation, EntityDatabase.allEntities[randomIndex]);
+                        newEntity.transform.position += newEntity.spawnpositions[i];
+                    }
+                    OnEntityAdded?.Invoke(newEntity);
                     break;
                 case 2:
                     //hard
-                    randomIndex = UnityEngine.Random.Range(0, HardDifficulty.Count);
-                    newEntity = Instantiate(EntityDatabase.allEntities[HardDifficulty[randomIndex]].prefab, team2Parent);
+                    randomIndex = UnityEngine.Random.Range(0, EasyDifficulty.Count);
+                    nodelocation = GridManager.Instance.GetFreeNode(Team.Team2);
+                    for (int j = 0; j < EntityDatabase.allEntities[EasyDifficulty[randomIndex]].quantity; j++)
+                    {
+                        newEntity = Instantiate(EntityDatabase.allEntities[EasyDifficulty[randomIndex]].prefab, team2Parent);
+                        newEntity.gameObject.name = EntityDatabase.allEntities[EasyDifficulty[randomIndex]].name;
+                        team2Entities.Add(newEntity);
+        
+                        newEntity.Setup(Team.Team2, nodelocation, EntityDatabase.allEntities[randomIndex]);
+                        newEntity.transform.position += newEntity.spawnpositions[i];
+                    }
+                    OnEntityAdded?.Invoke(newEntity);
                     break;
             }
-            
-            team2Entities.Add(newEntity);
-
-            // might eventually adjust this to depend on the difficulty
-            // make a easy, medium and hard database for the AI
-            // or use the same database but limit selection
-            newEntity.Setup(Team.Team2, GridManager.Instance.GetFreeNode(Team.Team2), EntityDatabase.allEntities[randomIndex]);
         }
     }
 }
