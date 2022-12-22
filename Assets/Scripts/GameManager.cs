@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameManager : Manager<GameManager>
 {
     public EntityDatabase EntityDatabase;
-
+    public PurchaseCard PurchaseCardPrefab;
     public Transform team1Parent;
     public Transform team2Parent;
 
@@ -17,6 +17,7 @@ public class GameManager : Manager<GameManager>
     public Action OnRoundEnd;
     public Action<BaseEntity> OnEntityDied;
     public Action<BaseEntity> OnEntityAdded;
+    public Action<PurchaseCard> OnEntityPurchased;
 
     public CardShop cardShop;
 
@@ -105,6 +106,7 @@ public class GameManager : Manager<GameManager>
         newCard.gameObject.SetActive(true);
 
         card.gameObject.SetActive(false);
+        OnEntityPurchased?.Invoke(card);
     }
 
     public void SetPurchasing(bool val)

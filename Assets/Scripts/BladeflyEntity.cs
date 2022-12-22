@@ -1,5 +1,5 @@
 ﻿
-public class BadgerEntity : BaseEntity
+public class BladeflyEntity : BaseEntity
 {
     //When you summon another Wild creature, grow by (1).
     protected override void OnRoundStart()
@@ -7,13 +7,13 @@ public class BadgerEntity : BaseEntity
         FindTarget();
     }
     
-    protected override void OnEntityAdded(BaseEntity entity)
+    protected override void OnEntityPurchased(PurchaseCard entity)
     {
-        if (entity.getTribe() == Tribe.Wild)
+        if (entity.tribe.text == "Wild")
         {
-            this.IncreaseQuantity(1);
-            GameManager.Instance.OnEntityCreated(this, this.spawnpositions[this.GetQuantity() - 1]);
+            GameManager.Instance.cardShop.GenerateSingleCard(this._entityData);
         }
+        Destroy(entity);
     }
     
     

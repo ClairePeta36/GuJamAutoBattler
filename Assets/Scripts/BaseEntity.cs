@@ -40,6 +40,8 @@ public class BaseEntity : MonoBehaviour
     public DraggableEntity draggableEntity;
 
     protected bool attackThisUpdate = false;
+    
+    [HideInInspector] 
     public List<Vector3> spawnpositions = new List<Vector3>
     {
         new Vector3(0, 0, 0),
@@ -48,6 +50,8 @@ public class BaseEntity : MonoBehaviour
         new Vector3(-2.5f, 0, 2.5f),
         new Vector3(-2.5f, 0, -2.5f),
     };
+
+    public EntityDatabase.EntityData _entityData;
     
     public void Setup(Team team, Node currentNode, EntityDatabase.EntityData entityData)
     {
@@ -88,7 +92,7 @@ public class BaseEntity : MonoBehaviour
         baseHealth = entityData.health;
         baseDamage = entityData.attack;
         quantity = entityData.quantity;
-        
+        _entityData = entityData;
         currentNode.SetOccupied(true);
     }
 
@@ -103,13 +107,15 @@ public class BaseEntity : MonoBehaviour
         GameManager.Instance.OnRoundEnd += OnRoundEnd;
         GameManager.Instance.OnEntityDied += OnUnitDied;
         GameManager.Instance.OnEntityAdded += OnEntityAdded;
-        
+        GameManager.Instance.OnEntityPurchased += OnEntityPurchased;
+
     }
 
     protected virtual void OnRoundStart() { }
     protected virtual void OnRoundEnd() { }
     protected virtual void OnUnitDied(BaseEntity diedUnity) { }
-    protected virtual void OnEntityAdded(BaseEntity diedUnity) { }
+    protected virtual void OnEntityAdded(BaseEntity addedUnity) { }
+    protected virtual void OnEntityPurchased(PurchaseCard broughtUnity) { }
 
 
     public void IncreaseQuantity(int val)

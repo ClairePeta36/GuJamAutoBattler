@@ -9312,6 +9312,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EntityDatabase: {fileID: 11400000, guid: 7c5d531eb9a8c4840a910e2bbde1281e, type: 2}
+  PurchaseCardPrefab: {fileID: 8479480832968867728, guid: 665eedfabdc438944a462d805b86670d,
+    type: 3}
   team1Parent: {fileID: 1080607018}
   team2Parent: {fileID: 1829886779}
   startGameButton: {fileID: 165742154}
@@ -19006,18 +19008,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf6adfa2ec28374889b1935029da1b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Preview: 0
-  Offset: -0.293
-  Area: 0.17
-  Spread: 1.06
-  Samples: 32
-  Radius: 1
-  UseDistortion: 1
-  CubicDistortion: 5
-  DistortionScale: 1
-  Shader: {fileID: 4800000, guid: cbeace583f2566a49bb4deeaa6131b50, type: 3}
-  m_Material: {fileID: 0}
-  m_GoldenRot: {x: -0.7373688, y: 0.6754904, z: -0.6754904, w: -0.7373688}
 --- !u!1001 &964828127
 PrefabInstance:
   m_ObjectHideFlags: 0
