@@ -190,10 +190,10 @@ MonoBehaviour:
     attack: 1
     quantity: 3
     ability: 'Afterlife: Gain (1) extra gold next turn. '
-  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+  - prefab: {fileID: 5824819488891739906, guid: e9d48a6248a9640458c5ee7182876436,
       type: 3}
     name: Priestess of Takhat
-    imageBackground: {fileID: 0}
+    imageBackground: {fileID: 21300000, guid: b86fa3df2e5a44551908e0d639f3ff6b, type: 3}
     cost: 1
     tribe: Anubian
     iconTribe: {fileID: 21300000, guid: 86ed5809668a54da3a86e0a555c39f50, type: 3}

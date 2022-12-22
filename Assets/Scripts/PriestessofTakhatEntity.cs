@@ -1,11 +1,28 @@
-﻿
-// When you buy another Wild creature, add a Bladefly to your hand. 
-public class BladeflyEntity : BaseEntity
+﻿using UnityEngine;
+
+// Ranged
+// After another Anubian unit within range dies, gain +2 strength for this battle. 
+
+public class PriestessofTakhatEntity : BaseEntity
 {
     protected override void OnRoundStart()
     {
         FindTarget();
+        this.range = 10;
     }
+    
+    protected override void OnUnitDied(BaseEntity entity)
+    {
+        if (entity.getTribe() != Tribe.Anubian)
+        {
+            return;
+        }
+        if (Vector3.Distance(entity.transform.position, this.transform.position) < this.range)
+        {
+            this.baseDamage += 2;
+        }
+    }
+    
     
     protected override void OnEntityPurchased(PurchaseCard entity)
     {
