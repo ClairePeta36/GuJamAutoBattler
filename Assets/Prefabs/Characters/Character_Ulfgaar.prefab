@@ -857,7 +857,7 @@ Animator:
   m_GameObject: {fileID: 3757904796239891823}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: fd7d68a65822e4a44a9ef78850e64cfc, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1de385df2ff713a41adfcbbb63b8af91, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -908,7 +908,6 @@ MonoBehaviour:
   animator: {fileID: 3757904796230449585}
   baseDamage: 1
   baseHealth: 3
-  range: 1
   currentTarget: {fileID: 0}
   draggableEntity: {fileID: 1456278534581734421}
 --- !u!1 &3757904796239898917

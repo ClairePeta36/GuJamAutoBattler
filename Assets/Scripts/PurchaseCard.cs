@@ -21,7 +21,7 @@ public class PurchaseCard : MonoBehaviour
     public EntityDatabase.EntityData myData;
     public bool isDragging = false;
     
-    public void Setup(EntityDatabase.EntityData myData, CardShop shopRef)
+    public void Setup()
     {
         Destroy(cardlayout.gameObject.GetComponent<ClickableCard>());
         clickableReference = null;

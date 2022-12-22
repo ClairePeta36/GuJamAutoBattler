@@ -52,7 +52,7 @@ public class UlfgaarEntity : BaseEntity
         protected override void Attack()
         {
             base.Attack();
-            
+
             currentTarget.DealDamage(baseDamage);
         }
     }

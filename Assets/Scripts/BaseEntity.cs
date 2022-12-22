@@ -15,13 +15,15 @@ public class BaseEntity : MonoBehaviour
     public int baseDamage = 1;
     [HideInInspector]
     public int baseHealth = 3;
-    int range = 5;
+    [HideInInspector]
+    public int range = 5;
     float movementSpeed = 10f; //Movement per second
     int quantity = 1;
 
     protected Team myTeam;
     protected Tribe myTribe;
     protected bool tribeBonus = false;
+    [HideInInspector]
     public BaseEntity currentTarget = null;
     protected Node currentNode;
 

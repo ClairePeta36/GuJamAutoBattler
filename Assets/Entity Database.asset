@@ -45,7 +45,7 @@ MonoBehaviour:
     attack: 0
     quantity: 0
     ability: 
-  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+  - prefab: {fileID: 4328478588140710817, guid: 537466bc41688b44fbe61a5d92336b0b,
       type: 3}
     name: Amazon Conscript
     imageBackground: {fileID: 0}
@@ -289,7 +289,7 @@ MonoBehaviour:
     attack: 3
     quantity: 3
     ability: 'Afterlife: Add (2) 1/1 Bloodguards to your hand. '
-  - prefab: {fileID: 6315491976565094506, guid: 5d562f9f031ab3648917351e2f07634a,
+  - prefab: {fileID: 5163131123338134223, guid: ea04a6d645c46e441a27ea1edebd8daa,
       type: 3}
     name: Marsh Walker
     imageBackground: {fileID: 0}

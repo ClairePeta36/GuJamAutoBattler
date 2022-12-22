@@ -73,9 +73,7 @@ public class GameManager : Manager<GameManager>
         BaseEntity newEntity = Instantiate(entityData.prefab, team1Parent);
         newEntity.gameObject.name = entityData.name;
         team1Entities.Add(newEntity);
-
-        //below either use the vector3 position of the mouse and put that into game space, or get the tile from the tile script
-        //or potentially could do a raycast hit on the mouse position
+        
         newEntity.Setup(Team.Team1, spawnPosition, entityData);
         OnEntityAdded?.Invoke(newEntity);
 
@@ -86,7 +84,7 @@ public class GameManager : Manager<GameManager>
     public void OnEntityBroughtFromShop(PurchaseCard card, GameObject spawnPosition)
     {
         var newCard = Instantiate(card, spawnPosition.transform);
-        newCard.Setup(card.myData, card.shopRef);
+        newCard.Setup();
         newCard.transform.localScale = new Vector3(1, 1, 1);
         newCard.gameObject.SetActive(true);
 
@@ -139,7 +137,8 @@ public class GameManager : Manager<GameManager>
         SetGameStart();
         startGameButton.gameObject.SetActive(false);
     }
-    public void CreateTeamTwo()
+
+    private void CreateTeamTwo()
     {
         for (int i = 0; i < team1Parent.childCount; i++)
         {
@@ -148,11 +147,12 @@ public class GameManager : Manager<GameManager>
 
             team2Entities.Add(newEntity);
 
+            // might eventually adjust this to depend on the difficulty
+            // make a easy, medium and hard database for the AI
+            // or use the same database but limit selection
             newEntity.Setup(Team.Team2, GridManager.Instance.GetFreeNode(Team.Team2), EntityDatabase.allEntities[randomIndex]);
         }
     }
-    
-
 }
 
 public enum Team
