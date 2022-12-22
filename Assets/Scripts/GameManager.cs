@@ -36,8 +36,8 @@ public class GameManager : Manager<GameManager>
 
     private int difficulty = 0;
     public Dropdown AIdifficulty;
-    private List<int> EasyDifficulty = new List<int> { 3, 5, 10, 16, 18, 19, 25, 27}; // only tier one
-    private List<int> MeduimDifficulty = new List<int> { 3, 5, 8, 10, 16, 17, 18, 19, 24, 25, 27, 29 }; // all
+    private List<int> EasyDifficulty = new List<int> { 3, 5, 10, 11, 16, 18, 19, 25, 27}; // only tier one
+    private List<int> MeduimDifficulty = new List<int> { 3, 5, 8, 10, 11, 16, 17, 18, 19, 24, 25, 27, 29 }; // all
     private List<int> HardDifficulty = new List<int> { 8, 17, 24, 27 }; // only tier two
     
     public PurchaseCard GetTryingToPurchaseCard()
