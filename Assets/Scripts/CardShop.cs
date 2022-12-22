@@ -31,9 +31,21 @@ public class CardShop : MonoBehaviour
             allCards[i].SetupShop(cachedDb.allEntities[validCharacters[Random.Range(0, validCharacters.Count)]], this);
         }
     }
-    public void GenerateSingleCard(EntityDatabase.EntityData entityData)
+    public void GenerateSingleCard(EntityDatabase.EntityData entityData, int healthoverride = 0, int attackoverride = 0, int quantityoverride = 0)
     {
         var card = Instantiate(GameManager.Instance.PurchaseCardPrefab, GameManager.Instance.cardSpawnLocation.transform);
+        if (healthoverride > 0)
+        {
+            entityData.health = healthoverride;
+        }
+        if (attackoverride > 0)
+        {
+            entityData.attack = attackoverride;
+        }
+        if (healthoverride > 0)
+        {
+            entityData.quantity = quantityoverride;
+        }
         card.SetupShop(entityData, this);
         card.Setup();
         card.transform.localScale = new Vector3(1, 1, 1);

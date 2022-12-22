@@ -1,21 +1,12 @@
 ﻿
-//When you buy another Wild creature, add a Bladefly to your hand. 
-public class BladeflyEntity : BaseEntity
+//Frontline
+public class ShieldmaidenEntity : BaseEntity
 {
     protected override void OnRoundStart()
     {
         FindTarget();
+        appliedKeywords.Add(Keyword.Frontline);
     }
-    
-    protected override void OnEntityPurchased(PurchaseCard entity)
-    {
-        if (entity.tribe.text == "Wild")
-        {
-            GameManager.Instance.cardShop.GenerateSingleCard(this._entityData);
-        }
-        Destroy(entity);
-    }
-    
     
     void FixedUpdate()
     {
