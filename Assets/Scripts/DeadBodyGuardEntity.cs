@@ -11,13 +11,14 @@ public class DeadBodyGuardEntity : BaseEntity
         FindTarget();
     }
 
-    public void Awake()
+    public void Start   ()
     {
-        int position = GridManager.Instance.GetFreeNode(Team.Team1).index;
-        Transform abc = GridManager.Instance.allTiles[position].transform;
-        EntityDatabase.EntityData skeleton = GameManager.Instance.EntityDatabase.allEntities[0];
-        skeleton.quantity = 2;
-        GameManager.Instance.cardShop.GenerateSingleCard(skeleton, overRidePosition: abc);
+        if (this.gameObject.name == "Dead Body Guard0")
+        {
+            EntityDatabase.EntityData skeleton = GameManager.Instance.EntityDatabase.allEntities[0];
+            skeleton.quantity = 2;
+            GameManager.Instance.OnEntityBrought(skeleton, GridManager.Instance.GetFreeNode(Team.Team1));
+        }
     }
 
     void FixedUpdate()

@@ -22,7 +22,7 @@ public class BaseEntity : MonoBehaviour
 
     protected Team myTeam;
     protected Tribe myTribe;
-    protected bool tribeBonus = false;
+
     [HideInInspector]
     public BaseEntity currentTarget = null;
     protected Node currentNode;
@@ -31,7 +31,7 @@ public class BaseEntity : MonoBehaviour
     protected bool HasEnemy => currentTarget != null;
     protected bool IsEnemyInRange => currentTarget != null && Vector3.Distance(this.transform.position, currentTarget.transform.position) <= range;
     
-    protected bool moving;
+    public bool moving;
     protected Node destinationNode;
 
     protected bool dead = false;
@@ -108,18 +108,15 @@ public class BaseEntity : MonoBehaviour
     protected void Start()
     {
         GameManager.Instance.OnRoundStart += OnRoundStart;
-        GameManager.Instance.OnRoundEnd += OnRoundEnd;
         GameManager.Instance.OnEntityDied += OnUnitDied;
         GameManager.Instance.OnEntityAdded += OnEntityAdded;
         GameManager.Instance.OnEntityPurchased += OnEntityPurchased;
-
     }
 
     protected virtual void OnRoundStart()
     {
         animator?.SetBool("Move", true);
     }
-    protected virtual void OnRoundEnd() { }
     protected virtual void OnUnitDied(BaseEntity diedUnity) { }
     protected virtual void OnEntityAdded(BaseEntity addedUnity) { }
     protected virtual void OnEntityPurchased(PurchaseCard broughtUnity) { }
@@ -164,8 +161,7 @@ public class BaseEntity : MonoBehaviour
     private bool MoveTowards(Node nextNode)
     {
         Vector3 direction = (currentTarget.transform.position - this.transform.position);
-
-
+        
         if (direction.magnitude < 5f)
         {
             transform.position = currentTarget.transform.position;
@@ -218,8 +214,8 @@ public class BaseEntity : MonoBehaviour
             if (path == null && path.Count >= 1)
                 return;
 
-            if (path[1].IsOccupied)
-                return;
+            /*if (path[1].IsOccupied)
+                return;*/
 
             path[1].SetOccupied(true);
             destinationNode = path[1];            
@@ -241,7 +237,6 @@ public class BaseEntity : MonoBehaviour
 
     public bool DealDamage(int amount)
     {
-        Debug.Log($"Claire damage dealt to {this.name}");
         baseHealth -= amount;
 
         if (baseHealth > 0 || dead)

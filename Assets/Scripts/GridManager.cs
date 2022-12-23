@@ -68,24 +68,37 @@ public class GridManager : Manager<GridManager>
 
     public Node GetFreeNode(Team forTeam)
     {
-        List<Node> enemySpawnPositions = new List<Node>();
-        foreach (var node in graph.Nodes)
+        List<Node> possibleSpawnPositions = new List<Node>();
+        if (forTeam == Team.Team1)
         {
-            if (node.worldPosition.x < -15)
+            foreach (var node in graph.Nodes)
             {
-                enemySpawnPositions.Add(node);
+                if (node.worldPosition.x > 15)
+                {
+                    possibleSpawnPositions.Add(node);
+                }
+            }
+        }
+        else
+        {
+            foreach (var node in graph.Nodes)
+            {
+                if (node.worldPosition.x < -15)
+                {
+                    possibleSpawnPositions.Add(node);
+                }
             }
         }
 
         int startIndex = 0;
         int currentIndex = startIndex;
 
-        while(enemySpawnPositions[currentIndex].IsOccupied)
+        while(possibleSpawnPositions[currentIndex].IsOccupied)
         {
             if(startIndex == 0)
             {
                 currentIndex++;
-                if (currentIndex == enemySpawnPositions.Count)
+                if (currentIndex == possibleSpawnPositions.Count)
                     return null;
             }
             else
@@ -96,9 +109,9 @@ public class GridManager : Manager<GridManager>
             }
             
         }
-        return enemySpawnPositions[currentIndex];
+        return possibleSpawnPositions[currentIndex];
     }
-    
+
     public Node GetNodeForTile(Tile t)
     {
         var allNodes = graph.Nodes;
@@ -121,7 +134,7 @@ public class GridManager : Manager<GridManager>
     public int fromIndex = 0;
     public int toIndex = 0;
 
-    private void OnDrawGizmos()
+   /* private void OnDrawGizmos()
     {
         if (graph == null)
             return;
@@ -158,7 +171,7 @@ public class GridManager : Manager<GridManager>
             }
         }
     }
-    
+    */
     
     
     

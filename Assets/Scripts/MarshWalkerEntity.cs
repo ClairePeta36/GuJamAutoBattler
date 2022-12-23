@@ -1,10 +1,14 @@
 ﻿
+using UnityEngine;
+
 public class MarshWalkerEntity : BaseEntity
 {
     private int tick = 0;
+    private int startHealth = 0;
     protected override void OnRoundStart()
     {
         base.OnRoundStart();
+        startHealth = this.baseHealth;
         FindTarget();
     }
         
@@ -41,7 +45,10 @@ public class MarshWalkerEntity : BaseEntity
         tick++;
         if (tick == 3)
         {
-            baseHealth++;
+            if (baseHealth < startHealth)
+            {
+                baseHealth++;
+            }
             tick = 0;
         }
     }

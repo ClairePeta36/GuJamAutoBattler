@@ -8,9 +8,9 @@ public class PlayerData : Manager<PlayerData>
     private void Awake()
     {
         base.Awake();
-        Money = 7;
+        Money = 3;
     }
-    
+
     public bool CanAfford(int amount)
     {
         return amount <= Money;
@@ -19,6 +19,12 @@ public class PlayerData : Manager<PlayerData>
     public void SpendMoney(int amount)
     {
         Money -= amount;
+        OnUpdate?.Invoke();
+    }
+
+    public void winMoney(int amount)
+    {
+        Money += amount;
         OnUpdate?.Invoke();
     }
 }

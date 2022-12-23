@@ -5,11 +5,13 @@ public class RiverjumperCaptainEntity : BaseEntity
 {
     protected override void OnRoundStart()
     {
+        string name = this.gameObject.name.Substring(0, this.gameObject.name.Length - 2);
+        
         base.OnRoundStart();
         FindTarget();
         foreach (var entity in GameManager.Instance.GetEntitiesAgainst(Team.Team2))
         {
-            if (entity.getTribe() == Tribe.Amazon)
+            if (entity.getTribe() == Tribe.Amazon && !entity.gameObject.name.Contains(name))
             {
                 this.baseDamage += 2;
             }

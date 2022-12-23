@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GameManager : Manager<GameManager>
 {
+    private int killcount = 0;
+    
     public EntityDatabase EntityDatabase;
     public PurchaseCard PurchaseCardPrefab;
     public Transform team1Parent;
@@ -45,6 +47,25 @@ public class GameManager : Manager<GameManager>
 
     public GameObject endGameScreen;
 
+    void FixedUpdate()
+    {
+        Debug.Log($"Claire update function");
+        if (isGameRunning)
+        {
+            Debug.Log($"Claire update function 1");
+            if (team1Entities.Count == 0 || team2Entities.Count == 0)
+            {
+                Debug.Log($"Claire update function2");
+                OnRoundEnd?.Invoke();
+            }
+        }
+    }
+
+    public void showStartButton()
+    {
+        startGameButton.gameObject.SetActive(true);
+    }
+    
     public int getcountOfTeam1PLayed()
     {
         return countOfTeam1PLayed;
@@ -62,7 +83,6 @@ public class GameManager : Manager<GameManager>
 
     public void SetDifficulty()
     {
-        Debug.Log($"Claire value {AIdifficulty.value}");
         difficulty = AIdifficulty.value;
     }
     public EntityDatabase.EntityData GetTryingToPurchaseEntity()
@@ -82,7 +102,9 @@ public class GameManager : Manager<GameManager>
 
     private void Start()
     {
+        endGameScreen.SetActive(false);
         Instance = this;
+        OnRoundEnd += RoundEnd;
     }
 
     public bool GetIsGameRunning()
@@ -101,7 +123,7 @@ public class GameManager : Manager<GameManager>
         for (int i = 0; i < entityData.quantity; i++)
         {
             newEntity = Instantiate(entityData.prefab, team1Parent);
-            newEntity.gameObject.name = entityData.name;
+            newEntity.gameObject.name = entityData.name+i;
             team1Entities.Add(newEntity);
         
             newEntity.Setup(Team.Team1, spawnPosition, entityData);
@@ -110,7 +132,6 @@ public class GameManager : Manager<GameManager>
         OnEntityAdded?.Invoke(newEntity);
         if (newEntity.GetTeam() == Team.Team1)
         {
-            Debug.Log($"Claire OnEntityAdded for {newEntity.name}");
             setcountOfTeam1PLayed(1);
         }
 
@@ -121,7 +142,7 @@ public class GameManager : Manager<GameManager>
     public void OnEntityCreated(BaseEntity entityData, Vector3 spawnPosition)
     {
         BaseEntity newEntity = Instantiate(entityData, team1Parent);
-        newEntity.gameObject.name = entityData.name;
+        newEntity.gameObject.name = entityData.name+0;
         newEntity.transform.position = spawnPosition;
         team1Entities.Add(newEntity);
         
@@ -167,6 +188,11 @@ public class GameManager : Manager<GameManager>
 
         OnEntityDied?.Invoke(entity);
 
+        if (entity.GetTeam() == Team.Team2)
+        {
+            killcount++;
+        }
+        
         Destroy(entity.gameObject);
     }
 
@@ -190,7 +216,6 @@ public class GameManager : Manager<GameManager>
 
     private void CreateTeamTwo()
     {
-        Debug.Log($"Claire countOfTeam1PLayed count {countOfTeam1PLayed}");
         for (int i = 0; i < countOfTeam1PLayed; i++)
         {
             int randomIndex = 0;
@@ -205,7 +230,7 @@ public class GameManager : Manager<GameManager>
                     for (int j = 0; j < EntityDatabase.allEntities[EasyDifficulty[randomIndex]].quantity; j++)
                     {
                         newEntity = Instantiate(EntityDatabase.allEntities[EasyDifficulty[randomIndex]].prefab, team2Parent);
-                        newEntity.gameObject.name = EntityDatabase.allEntities[EasyDifficulty[randomIndex]].name;
+                        newEntity.gameObject.name = EntityDatabase.allEntities[EasyDifficulty[randomIndex]].name+i;
                         team2Entities.Add(newEntity);
         
                         newEntity.Setup(Team.Team2, nodelocation, EntityDatabase.allEntities[randomIndex]);
@@ -220,7 +245,7 @@ public class GameManager : Manager<GameManager>
                     for (int j = 0; j < EntityDatabase.allEntities[EasyDifficulty[randomIndex]].quantity; j++)
                     {
                         newEntity = Instantiate(EntityDatabase.allEntities[EasyDifficulty[randomIndex]].prefab, team2Parent);
-                        newEntity.gameObject.name = EntityDatabase.allEntities[EasyDifficulty[randomIndex]].name;
+                        newEntity.gameObject.name = EntityDatabase.allEntities[EasyDifficulty[randomIndex]].name+i;
                         team2Entities.Add(newEntity);
         
                         newEntity.Setup(Team.Team2, nodelocation, EntityDatabase.allEntities[randomIndex]);
@@ -235,7 +260,7 @@ public class GameManager : Manager<GameManager>
                     for (int j = 0; j < EntityDatabase.allEntities[EasyDifficulty[randomIndex]].quantity; j++)
                     {
                         newEntity = Instantiate(EntityDatabase.allEntities[EasyDifficulty[randomIndex]].prefab, team2Parent);
-                        newEntity.gameObject.name = EntityDatabase.allEntities[EasyDifficulty[randomIndex]].name;
+                        newEntity.gameObject.name = EntityDatabase.allEntities[EasyDifficulty[randomIndex]].name+i;
                         team2Entities.Add(newEntity);
         
                         newEntity.Setup(Team.Team2, nodelocation, EntityDatabase.allEntities[randomIndex]);
@@ -247,9 +272,21 @@ public class GameManager : Manager<GameManager>
         }
     }
 
-    public void RoundEnd()
+    private void RoundEnd()
     {
+        Debug.Log($"Claire RoundEnd function");
+        isGameRunning = false;
+        bool didWin = team1Entities.Count == 0;
+        foreach (var entity in team1Entities)
+        {
+            Destroy(entity.gameObject);
+        }
+        foreach (var entity in team2Entities)
+        {
+            Destroy(entity.gameObject);
+        }
         endGameScreen.SetActive(true);
+        EndGamePanel.updateWin(!didWin, killcount);
     }
 }
 

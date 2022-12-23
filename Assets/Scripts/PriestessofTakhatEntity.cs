@@ -14,7 +14,7 @@ public class PriestessofTakhatEntity : BaseEntity
     
     protected override void OnUnitDied(BaseEntity entity)
     {
-        if (entity.getTribe() != Tribe.Anubian)
+        if (entity.getTribe() != Tribe.Anubian || entity.GetTeam() != this.myTeam)
         {
             return;
         }
